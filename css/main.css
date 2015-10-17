@@ -1,12 +1,3 @@
-.sub-title {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 14px;
-  float: left;
-}
-body {
-  font-family: "Microsoft Yahei";
-}
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -1064,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #544af6;
+  background: #8ca1bd;
 }
 .sidebar-nav {
   margin: 0;
@@ -2228,10 +2219,13 @@ ul li {
   margin: 0 auto;
 }
 .sub-title {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 14px;
   float: left;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.pic-title {
+  text-align: center;
 }
 body {
   font-family: "Microsoft Yahei";

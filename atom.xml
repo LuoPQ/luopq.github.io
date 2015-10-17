@@ -49,7 +49,7 @@
     <link href="http://luopq.com/2015/10/15/learn-markdown/"/>
     <id>http://luopq.com/2015/10/15/learn-markdown/</id>
     <published>2015-10-15T12:10:33.000Z</published>
-    <updated>2015-10-15T14:18:25.791Z</updated>
+    <updated>2015-10-17T16:17:57.619Z</updated>
     <content type="html"><![CDATA[<h3 id="基本语法">基本语法</h3><h4 id="标题">标题</h4><p>一级标题： # 一级标题<br>二级标题： ## 二级标题<br>三级标题： ### 三级标题<br>四级标题： #### 四级标题<br>五级标题： ##### 五级标题<br>六级标题： ###### 六级标题</p>
 <h4 id="列表">列表</h4><p>无序列表 ：在文字前加上“-”或“*”  </p>
 <ul>
