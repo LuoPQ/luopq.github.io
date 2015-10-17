@@ -1064,7 +1064,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7570ff;
+  background: #544af6;
 }
 .sidebar-nav {
   margin: 0;
@@ -2226,4 +2226,13 @@ ul li {
 }
 .posts-expand .post-body .fancybox img {
   margin: 0 auto;
+}
+.sub-title {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+  float: left;
+}
+body {
+  font-family: "Microsoft Yahei";
 }
