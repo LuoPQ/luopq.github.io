@@ -63,7 +63,7 @@
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.1.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.2.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo8.jpg">
-<meta property="og:updated_time" content="2015-10-26T13:16:21.671Z">
+<meta property="og:updated_time" content="2015-10-27T14:32:42.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解CSS盒模型">
 <meta name="twitter:description" content="本文主要是学习CSS盒模型的笔记，总结了一些基本概念，知识点和细节。HTML的大多数元素都是块级(block)元素或行内(inline)元素。块级元素：默认情况下，块级元素会另起一行，并尽可能的充满整个容器。块级元素可以包含行内元素和其他块级元素，相比于行内元素可以创建更复杂和大型的结构。行内元素：行内元素不会另起一行只占据它对应的标签的边框所包含内容的空间，只能包含数据和其他行内元素。盒模型：h">
@@ -300,7 +300,7 @@
 <p>html代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"m20"</span>&gt; 外边距<span class="number">20</span>px &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"m10"</span>&gt; 外边距<span class="number">10</span>px &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p>css代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.p20</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">20px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.p10</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
 <p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo8.jpg" alt=""><br>如图所示，两个div标签的外边距分别是20px，10px，但是最终两个div之间的距离是20px，而不是20+10=30px</p>
-<h4 id="行内元素的盒模型">行内元素的盒模型</h4><p>行内元素也是有盒模型的，但是有几点要注意：<br>1.行内元素可以设置margin-left和margin-right属性，无法设置margin-top和margin-bottom属性<br>2.行内元素border和padding可以设置，但是border-top和padding-top到页面顶部后就不再增加</p>
+<h4 id="行内元素的盒模型">行内元素的盒模型</h4><p>行内元素也是有盒模型的，但是有几点要注意：<br>1.对于非替换元素，比如a，span标签等<br>（1）可以设置margin-left和margin-right属性，无法设置margin-top和margin-bottom属性<br>（2）行内元素border和padding可以设置，但是border-top和padding-top到页面顶部后就不再增加<br>2.对于替换元素，比如input，img标签<br>margin，padding，border都有效果</p>
 </span>
       
 
