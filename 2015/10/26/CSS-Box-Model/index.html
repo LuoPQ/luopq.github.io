@@ -1,0 +1,767 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="CSS概念,盒模型" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="狼狼的蓝胖子" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="本文主要是学习CSS盒模型的笔记，总结了一些基本概念，知识点和细节。HTML的大多数元素都是块级(block)元素或行内(inline)元素。块级元素：默认情况下，块级元素会另起一行，并尽可能的充满整个容器。块级元素可以包含行内元素和其他块级元素，相比于行内元素可以创建更复杂和大型的结构。行内元素：行内元素不会另起一行只占据它对应的标签的边框所包含内容的空间，只能包含数据和其他行内元素。盒模型：h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解CSS盒模型">
+<meta property="og:url" content="http://luopq.com/2015/10/26/CSS-Box-Model/index.html">
+<meta property="og:site_name" content="狼狼的蓝胖子">
+<meta property="og:description" content="本文主要是学习CSS盒模型的笔记，总结了一些基本概念，知识点和细节。HTML的大多数元素都是块级(block)元素或行内(inline)元素。块级元素：默认情况下，块级元素会另起一行，并尽可能的充满整个容器。块级元素可以包含行内元素和其他块级元素，相比于行内元素可以创建更复杂和大型的结构。行内元素：行内元素不会另起一行只占据它对应的标签的边框所包含内容的空间，只能包含数据和其他行内元素。盒模型：h">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo1.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo1.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo2.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo2.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo3.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo3.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo4.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo4.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo5.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo5.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo6.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo6.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo8.jpg">
+<meta property="og:updated_time" content="2015-10-26T13:16:21.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解CSS盒模型">
+<meta name="twitter:description" content="本文主要是学习CSS盒模型的笔记，总结了一些基本概念，知识点和细节。HTML的大多数元素都是块级(block)元素或行内(inline)元素。块级元素：默认情况下，块级元素会另起一行，并尽可能的充满整个容器。块级元素可以包含行内元素和其他块级元素，相比于行内元素可以创建更复杂和大型的结构。行内元素：行内元素不会另起一行只占据它对应的标签的边框所包含内容的空间，只能包含数据和其他行内元素。盒模型：h">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 详解CSS盒模型 | 狼狼的蓝胖子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?71a8326527b5fd808db4be0cc7746136";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">狼狼的蓝胖子</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+<span class="sub-title">我只是想写点字</span>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              详解CSS盒模型
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-10-26T16:41:05+08:00" content="2015-10-26">
+            2015-10-26
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/26/CSS-Box-Model/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/26/CSS-Box-Model/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+      
+      <p>原文地址：<a href="http://luopq.com/2015/10/26/CSS-Box-Model/">http://luopq.com/2015/10/26/CSS-Box-Model/</a></p>
+      
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>本文主要是学习CSS盒模型的笔记，总结了一些基本概念，知识点和细节。</p>
+<h3 id="一些基本概念">一些基本概念</h3><p>HTML的大多数元素都是块级(block)元素或行内(inline)元素</p>
+<h4 id="块级元素">块级元素</h4><p>默认情况下，块级元素会另起一行，并尽可能的充满整个容器。<br>块级元素可以包含行内元素和其他块级元素，相比于行内元素可以创建更复杂和大型的结构</p>
+<h5 id="块级元素列表：">块级元素列表：</h5><p>html5新增的元素：<br>figcation：图文信息组标题 ，article：文章，figure：图文信息组<br>output：表单输出，aside：侧栏内容，footer：区段尾或页尾，audio：音频播放<br>video：视频播放，section：页面区段，canvas：画布、绘制图形，header：区段头或页头<br>hgroup：标题组，</p>
+<p>address：联系方式信息，ol：有序列表，p：行，form：表单，pre：预格式化文本，blockqute：块引用<br>h1-h6：标题，table：表格，dd：列表中条目描述，dl：定义列表，div，hr：水平分割线</p>
+<h4 id="行内元素">行内元素</h4><p>行内元素不会另起一行只占据它对应的标签的边框所包含内容的空间，<br>只能包含数据和其他行内元素</p>
+<h5 id="行内元素列表">行内元素列表</h5><p>b，big，i，small，tt，<br>abbr，acronym，cite，code，dfn，em，kbd，strong，samp，var，<br>a，bdo，br，img，map，object，q，script，span，sub，sup，<br>button，input，label，select，textarea</p>
+<h4 id="块级元素和行内元素的区别">块级元素和行内元素的区别</h4><p>块级元素：<br>1.会另起一行，<br>2.可以设置width，height，margin，padding，border属性<br>3.默认宽度是容器的100%</p>
+<p>行内元素：<br>1.和其他元素在同一行内<br>2.高度和宽度就是内容的高度和宽度<br>3.可以设置margin-left和margin-right属性，无法设置margin-top和margin-bottom属性<br>4.border和padding可以设置，但是border-top和padding-top到页面顶部后就不再增加</p>
+<h4 id="正常流">正常流</h4><p>正常流指：从左到右，从上到下显示。要让一个元素不在正常流中，唯一的办法是让元素浮动或定位</p>
+<h4 id="非替换元素">非替换元素</h4><p>如果元素的内容包含在文档中，则称之为非替换元素。比如一个段落的文本都在该元素本身之内，这个段落就是一个非替换元素。</p>
+<h4 id="替换元素">替换元素</h4><p>作为其他内容占位符的一个元素称为替换元素，根据标签和属性的值来显示内容的元素。比如img元素，它只是指向一个图像文件，这个文件插入到文档流中。大多数表单元素（input，根据type属性来显示内容）也是替换元素。</p>
+<h4 id="根元素">根元素</h4><p>位于文档树的顶端，在html文档中就是html元素</p>
+<h3 id="盒模型">盒模型</h3><p>html文档中的每个元素都被描绘成矩形盒子，这些矩形盒子通过一个模型来描述其占用空间，这个模型称为盒模型。盒模型通过四个边界来描述：margin（外边距），border（边框），padding（内边距），content（内容区域），如图所示：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model.jpg" alt="CSS盒模型" title="CSS盒模型"></p>
+<h4 id="几点提示">几点提示</h4><p>1.padding，border，margin都是可选的，默认值为0，但是浏览器会自行设置元素的margin和padding，通过在css样式表中设置<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span><br><span class="line">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>来覆盖浏览器样式。注意：这里的*表示所有元素，但是这样性能不好，建议一次列出常用的元素来设置</p>
+<p>2.如果给元素设置背景，并且边框的颜色为透明，背景将应用于内容，内边距和边框组成的区域。</p>
+<p>3.浏览器兼容性<br>一旦为页面设置了恰当的 DTD，大多数浏览器都会按照上面的图示来呈现内容。然而 IE 5 和 6 的呈现却是不正确的。<br>根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的。<br>不幸的是，IE5.X 和 6 在怪异模式中使用自己的非标准模型。这些浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和。</p>
+<h4 id="水平格式化">水平格式化</h4><h5 id="非替换元素的水平格式化">非替换元素的水平格式化</h5><p>水平格式化的7大属性是：margin-left，border-left，padding-left，width，padding-right，border-right，margin-right。这7个属性值加起来往往是父级元素的width值。</p>
+<p>其中margin-left，width，margin-right可以设置为auto。<br>主要有下面几种情况：</p>
+<h6 id="一个属性设置成auto">一个属性设置成auto</h6><p>如果三个属性中某个属性设置了auto，其余两个为特定的值，那么设置auto的属性为确定所需的元素，从而使得元素框的宽度等于父级元素的width。</p>
+<blockquote>
+<p>例子</p>
+</blockquote>
+<p>HTML代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;span <span class="type">class</span>=<span class="string">"block"</span>&gt;块级元素&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">600px</span></span><br><span class="line">&#125;</span><br><span class="line">div &#123;</span><br><span class="line">    background: <span class="hexcolor">#eeb3b3</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo1.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo1.2.jpg" alt=""></p>
+<p>被设置为auto的margin-auto属性值为340px，即margin-left+border-left+padding-left+width+padding-right+border-right+margin-right=340+0+30+100+30+0+100=600</p>
+<h6 id="总和不等于父级元素的width">总和不等于父级元素的width</h6><p>使用auto可以弥补实际值与所需总和的差距，如果三个属性都设置了特定值，但是总和不等于父级元素的width。<br>修改上面例子中的margin-left为100px，即<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo2.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo2.2.jpg" alt=""></p>
+<p>在上面的CSS中，margin-left，width，margin-right都设置了特定值，但是七大属性总和不等于父级元素的width。这种情况下：<br>在FF中，margin-right的值为开发者设定的值<br>在Chrome中，margin-right被强制为auto</p>
+<h6 id="width设置为auto">width设置为auto</h6><p>如果margin-left和margin-right都设置特定值，width设置为auto，则width将会等于某个特定值以达到父级元素的width。<br>如果将width修改为auto，即：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo3.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo3.2.jpg" alt=""></p>
+<p>元素的width将被被设定为340px来使总和达到父级元素的width</p>
+<h6 id="margin-left和margin-right设置成auto">margin-left和margin-right设置成auto</h6><p>如果margin-left和amrgin-right都设置为auto，则它们会设置相等的值，因此元素将在父级元素中居中。这是将块级元素居中的一种方法。注意：text-align设置为center只适用于块级元素中的内联内容居中，并不能使块级元素居中。<br>设置margin属性为margin:0 auto<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>;    </span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo4.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo4.2.jpg" alt=""><br>margin-left和margin-right的值会被设置为相等，使得元素居中</p>
+<h6 id="某个外边距和width设置成auto">某个外边距和width设置成auto</h6><p>如果设置某个外边距和width为auto，则设置为auto的外边距会为0，width会设置为所需的值来填充父级元素。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo5.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo5.2.jpg" alt=""><br>设置margin-left和width为auto，则margin-left将被设置为0，width会被设置为440px来满足父级元素的width</p>
+<h6 id="全设置成auto">全设置成auto</h6><p>如果margin和width都设置为auto，则两个外边距会设置为0，width会尽可能宽。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> auto</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo6.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo6.2.jpg" alt=""></p>
+<p>三个值都设置为auto，则两个外边距会设置为0，width会被设置为540px</p>
+<h6 id="负外边距">负外边距</h6><p>7个属性只要都是大于等于0的值，总和总是等于父级元素的width，不会超过父级元素的区域<br>但是可以通过制定负外边距来得到比父级元素width更大的区域<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.block</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ffd800</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> -<span class="number">400px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">30px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.1.jpg" alt=""><br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo7.2.jpg" alt=""></p>
+<p>设置margin-right为-400px，则元素会大于父级元素width，因为100+0+30+840+30+0-400=600，元素的width为840px</p>
+<h5 id="替换元素的水平格式化">替换元素的水平格式化</h5><p>替换元素的水平格式化规则和非替换元素的规则类似，只有一个width有区别，如果width设置为auto，则元素的宽度是内容的固有宽度。注意：对于img标签，如果width不等于其固有宽度，则height也会等比例增加，除非设置特定值。反过来如果height设置高度，width也会等比例增加</p>
+<h4 id="垂直格式化">垂直格式化</h4><p>垂直格式化和水平格式化类似，也有7个相关属性：margin-top，border-top，padding-top，height，padding-bottom，border-bottom，margin-bottom，这7个属性的总和必须等于父级元素的height属性。<br>其中margin-top，margin-bottom和height可以设置成auto<br>一个正常流中的块元素的margin-top和margin-bottom设置为auto后，会被设置为0，即不能将元素垂直居中，实际上元素没有外边距。定位元素如果设置成auto有不同的处理结果。</p>
+<p>如果正常流元素的height设置为auto，则其高度将会被设置为其内容元素的高度总和。</p>
+<h5 id="垂直外边距合并">垂直外边距合并</h5><p>垂直外边距合并：当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
+<blockquote>
+<p>例子</p>
+</blockquote>
+<p>html代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"m20"</span>&gt; 外边距<span class="number">20</span>px &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"m10"</span>&gt; 外边距<span class="number">10</span>px &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>css代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.p20</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">20px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.p10</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/box-model-demo8.jpg" alt=""><br>如图所示，两个div标签的外边距分别是20px，10px，但是最终两个div之间的距离是20px，而不是20+10=30px</p>
+<h4 id="行内元素的盒模型">行内元素的盒模型</h4><p>行内元素也是有盒模型的，但是有几点要注意：<br>1.行内元素可以设置margin-left和margin-right属性，无法设置margin-top和margin-bottom属性<br>2.行内元素border和padding可以设置，但是border-top和padding-top到页面顶部后就不再增加</p>
+</span>
+      
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/27/design-pattern-singleton/" rel="prev">Javascript设计模式理论与实战：单例模式</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/" rel="next">蚁人和头脑特工队</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/10/26/CSS-Box-Model/"
+                   data-title="详解CSS盒模型" data-url="http://luopq.com/2015/10/26/CSS-Box-Model/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/about"><img class="site-author-image" src="http://tp4.sinaimg.cn/1836010911/180/5614933698/1" alt="LuoPQ" itemprop="image" title="LuoPQ"/></a>
+          <p class="site-author-name" itemprop="name">LuoPQ</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+                     
+              <a href="/about" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                About
+              </a>
+          
+                     
+              <a href="/books" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                Books
+              </a>
+          
+          
+          </div>
+        
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lrzw32" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一些基本概念"><span class="nav-number">1.</span> <span class="nav-text">一些基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#块级元素"><span class="nav-number">1.1.</span> <span class="nav-text">块级元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#块级元素列表："><span class="nav-number">1.1.1.</span> <span class="nav-text">块级元素列表：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素"><span class="nav-number">1.2.</span> <span class="nav-text">行内元素</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#行内元素列表"><span class="nav-number">1.2.1.</span> <span class="nav-text">行内元素列表</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#块级元素和行内元素的区别"><span class="nav-number">1.3.</span> <span class="nav-text">块级元素和行内元素的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正常流"><span class="nav-number">1.4.</span> <span class="nav-text">正常流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非替换元素"><span class="nav-number">1.5.</span> <span class="nav-text">非替换元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换元素"><span class="nav-number">1.6.</span> <span class="nav-text">替换元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根元素"><span class="nav-number">1.7.</span> <span class="nav-text">根元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">2.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#几点提示"><span class="nav-number">2.1.</span> <span class="nav-text">几点提示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平格式化"><span class="nav-number">2.2.</span> <span class="nav-text">水平格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#非替换元素的水平格式化"><span class="nav-number">2.2.1.</span> <span class="nav-text">非替换元素的水平格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一个属性设置成auto"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">一个属性设置成auto</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#总和不等于父级元素的width"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">总和不等于父级元素的width</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#width设置为auto"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">width设置为auto</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#margin-left和margin-right设置成auto"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">margin-left和margin-right设置成auto</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#某个外边距和width设置成auto"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">某个外边距和width设置成auto</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#全设置成auto"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">全设置成auto</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#负外边距"><span class="nav-number">2.2.1.7.</span> <span class="nav-text">负外边距</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换元素的水平格式化"><span class="nav-number">2.2.2.</span> <span class="nav-text">替换元素的水平格式化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#垂直格式化"><span class="nav-number">2.3.</span> <span class="nav-text">垂直格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#垂直外边距合并"><span class="nav-number">2.3.1.</span> <span class="nav-text">垂直外边距合并</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内元素的盒模型"><span class="nav-number">2.4.</span> <span class="nav-text">行内元素的盒模型</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuoPQ</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"luopq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
