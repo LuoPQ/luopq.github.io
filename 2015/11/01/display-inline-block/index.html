@@ -54,7 +54,7 @@
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo5.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo6.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo7.jpg">
-<meta property="og:updated_time" content="2015-11-01T05:22:28.760Z">
+<meta property="og:updated_time" content="2015-11-02T16:56:44.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解CSS display:inline-block的应用">
 <meta name="twitter:description" content="本文详细描述了display:inline-block的基础知识，产生的问题和解决方法以及其常见的应用场景，加深了对inline-block应用的进一步理解。">
@@ -269,11 +269,11 @@
 <p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo2.jpg" alt="inline默认情况"></p>
 <p>默认情况下，inline元素之间就有空隙出现，所以结合了inline和block属性的inline-block属性自然也有这个特点。<br>那这些空隙是什么呢，它们是空白符！</p>
 <h4 id="消除空白符">消除空白符</h4><p>在浏览器中，空白符是不会被浏览器忽略的，多个连续的空白符浏览器会自动将其合并成一个。我们编写代码时写的空格，换行都会产生空白符。所以自然而然的两个元素之间会有空白符，如果将上述例子中的a标签写成一行，空白符消失，菜单之间也就紧凑起来了。</p>
-<p>空白符虽然是浏览器正常的表现行为，但是通常情况下，设计师同学的设计稿不会出现这些空隙，我们在还原设计稿的时候，怎么去除掉这些空隙呢。<br>要取出空白符产生的间隙，首先要理解空白符归根结底是个字符，通过设置font-size属性可以控制产生的间隙的大小。<br>首先我们将font-size设置成50px试试，修改CSS代码如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ul</span>, <span class="tag">li</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">50px</span>&#125;</span><br><span class="line">        li &#123; display: inline-block</span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#000</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span> &#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>空白符虽然是浏览器正常的表现行为，但是通常情况下，设计师同学的设计稿不会出现这些空隙，我们在还原设计稿的时候，怎么去除掉这些空隙呢。<br>要去除空白符产生的间隙，首先要理解空白符归根结底是个字符，通过设置font-size属性可以控制产生的间隙的大小。<br>首先我们将font-size设置成50px试试，修改CSS代码如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ul</span>, <span class="tag">li</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">50px</span>&#125;</span><br><span class="line">        li &#123; display: inline-block</span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#000</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span> &#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
 <p>我们修改ul的font-size为50px，而li的font-size为12px保持原来的字体大小，效果如下：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo3.jpg" alt="font-size:50px的空隙"><br>可以看到菜单之间的空隙变大了。<br>接着我们设置font-site属性为0px，代码如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ul</span>, <span class="tag">li</span> <span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">0px</span>&#125;</span><br><span class="line">        li &#123; display: inline-block</span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#000</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;<span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span> &#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
 <p>效果如下：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/displayInlineBlock-demo4.jpg" alt="font-size:0的空隙"><br>可以看到菜单之间的空隙没有了，大家可以自行查看<a href="http://runjs.cn/code/2qc4sp6i" target="_blank" rel="external">Demo</a></p>
 <h4 id="兼容性问题">兼容性问题</h4><p>在IE8+，FF和Chrome的浏览器，inline-block可以完美的兼容，考虑到IE6和IE7等低版本浏览器的占用率，虽然有办法可以兼容，但本文不再赘述，大家有兴趣的可以查找相关资料。</p>
-<h3 id="inline-block的应用">inline-block的应用</h3><p>inline-block的应用什么场景有哪些呢？我们大家考虑一个技术的应用场景时，首先一定要思考的是技术的特性和需求是否符合。inline-block的特点是结合inline和block两种属性的特定，可以设置width和height，并且元素保持行内排列的特性，基于这一点，所有行内排列并且可以设置大小的场景都是我们可以考虑使用inline-block的应用场景。下面举例说明：</p>
+<h3 id="inline-block的应用">inline-block的应用</h3><p>inline-block的应用什么场景有哪些呢？我们大家考虑一个技术的应用场景时，首先一定要思考的是技术的特性和需求是否符合。inline-block的特点是结合inline和block两种属性的特性，可以设置width和height，并且元素保持行内排列的特性，基于这一点，所有行内排列并且可以设置大小的场景都是我们可以考虑使用inline-block的应用场景。下面举例说明：</p>
 <h4 id="网页头部菜单">网页头部菜单</h4><p>网页头部的菜单就是典型的横向排列并且需要设置大小的应用，在inline-block之前，实现菜单基本都是用float属性来实现，float属性会造成高度塌陷，需要清除浮动等问题，使用inline-block实现就不需要在意这样的问题。代码如下：</p>
 <blockquote>
 <p>HTML代码：</p>
@@ -334,6 +334,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/03/design-pattern-factory/" rel="prev">Javascript设计模式理论与实战：简单工厂模式</a>
             
           </div>
 
@@ -432,21 +434,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
