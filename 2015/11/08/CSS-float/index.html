@@ -1,0 +1,798 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="狼狼的蓝胖子" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="CSS中的float属性是一个频繁用到的属性，对于初学者来说，如果没有理解好浮动的意义和表现出来的特性，在使用的使用很容易陷入困惑，云里雾里，搞不清楚状态。本文将从最基本的知识开始说起，谈谈关于浮动的应用，出现的问题和解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解CSS float属性">
+<meta property="og:url" content="http://luopq.com/2015/11/08/CSS-float/index.html">
+<meta property="og:site_name" content="狼狼的蓝胖子">
+<meta property="og:description" content="CSS中的float属性是一个频繁用到的属性，对于初学者来说，如果没有理解好浮动的意义和表现出来的特性，在使用的使用很容易陷入困惑，云里雾里，搞不清楚状态。本文将从最基本的知识开始说起，谈谈关于浮动的应用，出现的问题和解决方案。">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo1.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo2.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo3.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo4.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo5.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo6.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo7.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo8.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo9.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo10.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo11.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo12.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo13.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo14.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo15.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo16.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo17.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo17.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo18.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo19.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo20.jpg">
+<meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo21.jpg">
+<meta property="og:updated_time" content="2015-11-08T13:36:54.742Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解CSS float属性">
+<meta name="twitter:description" content="CSS中的float属性是一个频繁用到的属性，对于初学者来说，如果没有理解好浮动的意义和表现出来的特性，在使用的使用很容易陷入困惑，云里雾里，搞不清楚状态。本文将从最基本的知识开始说起，谈谈关于浮动的应用，出现的问题和解决方案。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 详解CSS float属性 | 狼狼的蓝胖子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?71a8326527b5fd808db4be0cc7746136";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">狼狼的蓝胖子</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+<span class="sub-title">我只是想写点字</span>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              详解CSS float属性
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-11-08T21:10:47+08:00" content="2015-11-08">
+            2015-11-08
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/08/CSS-float/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/08/CSS-float/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+      
+      <p>原文地址：<a href="http://luopq.com/2015/11/08/CSS-float/">http://luopq.com/2015/11/08/CSS-float/</a></p>
+      
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>CSS中的float属性是一个频繁用到的属性，对于初学者来说，如果没有理解好浮动的意义和表现出来的特性，在使用的使用很容易陷入困惑，云里雾里，搞不清楚状态。本文将从最基本的知识开始说起，谈谈关于浮动的应用，出现的问题和解决方案。</p>
+<h3 id="基础知识">基础知识</h3><p>float，顾名思义就是浮动，设置了float属性的元素会根据属性值向左或向右浮动，我们称设置了float属性的元素为浮动元素。<br>浮动元素会从普通文档流中脱离，但浮动元素影响的不仅是自己，它会影响周围的元素对齐进行环绕。举例说明如下：<br>Html代码：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">        &lt;span <span class="type">class</span>=<span class="string">"float-ele"</span>&gt;</span><br><span class="line">            浮动元素</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流普通文档流</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#00ff90</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.float-ele</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo1.jpg" alt="float基本效果" title="float基本效果"></p>
+<p>由效果图可以看出，span元素周围的文字会围绕着span元素，而设置了float属性的span元素变成了一个块级元素的感觉，可以设置width和height属性。这是设置了float属性后的效果，关于float的详细细节，我们接下来详细讲解。</p>
+<h3 id="float的详细细节">float的详细细节</h3><p>在说明float带来的详细细节之前，我们首先要了解一个概念。<br>包含块：浮动元素的包含块就是离浮动元素最近的块级祖先元素，前面叙述的例子中，div.box就是span元素的包含块。</p>
+<p>了解完包含块的概念之后，首先要说明的浮动元素的第一个特性：不管一个元素是行内元素还是块级元素，如果被设置了浮动，那浮动元素会生成一个块级框，可以设置它的width和height，因此float常常用于制作横向配列的菜单，可以设置大小并且横向排列。</p>
+<p>浮动元素的展示在不同情况下会有不同的规则，下面我们来一一说明这些规则。<br>1.浮动元素在浮动的时候，其margin不会超过包含块的padding<br>这一点很简单，浮动元素的浮动位置不能超过包含块的内边界<br>HTML代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">        &lt;span <span class="type">class</span>=<span class="string">"rule1"</span>&gt;</span><br><span class="line">            浮动元素</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#00ff90</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">400px</span></span></span>; &#125;</span></span><br><span class="line">        <span class="class">.rule1</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo2.jpg" alt="float规则一" title="float规则一"><br>这个例子中，box的padding是10px，浮动元素的margin是10px，合起来为20px，即浮动元素不会超过包含块的padding。<br>PS：如果想要元素超出，可以设置margin属性</p>
+<p>2.如果有多个浮动元素，后面的浮动元素的margin不会超过前面浮动元素的margin<br>简单说就是如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象。<br>修改前面例子中的HTML代码如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素1</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素2</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素3</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图如下：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo3.jpg" alt="float规则二" title="float规则二"></p>
+<p>如图所示，浮动元素会一个一个排序下来而不会发生重叠现象。</p>
+<p>3.如果两个元素一个向左浮动，一个向右浮动，左浮动元素的marginRight不会和右浮动元素的marginLeft相邻。<br>什么意思呢，我们要分两种情况来看。<br>（1）包含块的宽度大于两个浮动元素的宽度总和，举例如下：<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素1</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"rule2"</span>&gt;</span></span><br><span class="line">            浮动元素2</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#00ff90</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">400px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.rule1</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br><span class="line"><span class="class">.rule2</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo4.jpg" alt="float规则三情况1" title="float规则三情况1"></p>
+<p>这种情况很简单：包含块元素的宽度足够大，两个元素一个向左浮动，一个向右浮动，井水不犯河水。</p>
+<p>（2）包含块的宽度小于两个浮动元素的宽度总和<br>修改浮动元素的宽度为300px，CSS代码如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.rule1</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br><span class="line"><span class="class">.rule2</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo5.jpg" alt="float规则三情况2" title="float规则三情况2"></p>
+<p>如果所示，如果包含块宽度不够高，后面的浮动元素将会向下浮动，其顶端是前面浮动元素的底端。</p>
+<p>4.浮动元素顶端不会超过包含块的内边界底端，如果有多个浮动元素，下一个浮动元素的顶端不会超过上一个浮动元素的底端<br>这条规则简单说就是如果有多个浮动元素，后面的元素高度不会超过前面的元素，并且不会超过包含块。举例如下：<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1浮动元素1</span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"rule1"</span>&gt;</span></span><br><span class="line">            浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2浮动元素2</span><br><span class="line">        <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#00ff90</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">400px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.rule1</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff6a00</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">250px</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo6.jpg" alt="float规则四" title="float规则四"><br>如图所示，两个浮动元素，后面的浮动元素不会超过前面的浮动元素</p>
+<p>5.如果有非浮动元素和浮动元素同时存在，并且非浮动元素在前，则浮动元素不会不会高于非浮动元素<br>这条规则也是显而易见的，在第4条规则中的例子，浮动元素有一个非浮动元素p，而浮动元素没有超过它。</p>
+<p>6.浮动元素会尽可能地向顶端对齐、向左或向右对齐<br>在满足其他规则下，浮动元素会尽量向顶端对齐、向左或向右对齐，在第4条规则中的例子，浮动元素会尽可能靠近不浮动的p元素，左侧对齐<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo7.jpg" alt="float规则六" title="float规则六"></p>
+<h3 id="float特殊情况">float特殊情况</h3><p>前面讨论了float需要遵守的一些规则，这些规则都是在比较常见的场景下展示的结果。下面我们来讨论一些不常见的情况。</p>
+<h4 id="浮动元素的延伸性">浮动元素的延伸性</h4><p>在说浮动元素的延伸性之前，我们首先来考虑一个比较特殊的例子。<br>我们将span元素放在p元素内，并将其高度设置成高于p元素并且左浮动，这个例子的关键在浮动元素高度高于父元素。<br>HTML代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">        在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，</span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"high-float"</span>&gt;</span></span><br><span class="line">            浮动元素比父级元素高</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#00ff21</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.high-float</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> orangered</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo8.jpg" alt="浮动元素高度大于父级元素" title="浮动元素高度大于父级元素"></p>
+<p>在这个例子中，浮动元素高度高于父元素，可以看到浮动元素超出了父元素的底端。<br>这种情况要怎么解决呢，只要将父元素也设置成浮动即可，我们将第一个p元素设置成左浮动，效果如下<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo9.jpg" alt="浮动元素延伸性" title="浮动元素延伸性"></p>
+<p>将父元素p设置成float:left后，浮动元素就会被包含到父元素里面，我们将这个特性成为浮动元素的延伸性。<br>浮动元素的延伸性是什么呢，我们可以将其理解为元素被设置成浮动后，该元素会进行延伸进而包含其所有浮动的子元素</p>
+<h4 id="浮动元素超出父级元素的padding">浮动元素超出父级元素的padding</h4><p>在前面提到的第一条规则：浮动元素的外边界不会超过父级元素的内边界。大部分情况下，我们见到的场景都是符合的。但是有一些特殊情况。<br>（1）负margin<br>我们将浮动元素的margin-left设置成负数。<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"minus-margin"</span>&gt;</span></span><br><span class="line">        负margin-left</span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">50px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#00ff21</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.minus-margin</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> orangered</span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> -<span class="number">20px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo10.jpg" alt="负maring的浮动元素" title="负maring的浮动元素"></p>
+<p>将margin-left设置成负数之后，浮动的子元素明显超出了父元素的内边界，这难道不是违反了第一条规则吗？<br>但仔细想想，这其实是合理的，因为默认情况下marign-left就是0，所以不会超出父元素的内边界，但是将其设置成负数之后，就相当于浮动元素覆盖了自己的内边界一样。<br>我们在从数学的角度来看看这个问题，这个例子中：<br>父元素的margin-left:50px，padding和border默认为0，即内边界所在距离浏览器左侧的位置为50px。<br>浮动的子元素默认情况下距离浏览器左侧的像素应该为50px，但是将其设置成margin-left:20px后，浏览器会进行计算：<br>50px+（-20px）margin+0border+0padding=30px。距离浏览器左侧更近，所以超出了父元素。</p>
+<p>（2）浮动元素宽度大于父级元素宽度<br>如果我们将浮动元素的宽度设置大于父级元素，效果会如何呢？<br>元素左浮动，width大于父级元素<br>HTML代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"big-width"</span>&gt;</span></span><br><span class="line">        width大于父级元素</span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">50px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#00ff21</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">250px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.big-width</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> orangered</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo11.jpg" alt="大width的浮动元素" title="大width的浮动元素"></p>
+<p>将浮动元素左浮动，并且宽度超出父级元素时，由于浮动元素宽度较大，它会超过父级元素的右内边界<br>如果将其设置成右浮动，情况又会怎么样呢？<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo12.jpg" alt="大width的浮动元素" title="大width的浮动元素"><br>可以看到，设置成右浮动后，会超出父级元素的左内边界。</p>
+<h4 id="重叠问题">重叠问题</h4><p>重叠问题是指两个元素再同一个位置，会出现上下重叠的问题。浮动元素如果和普通文档流发生重叠会怎么样呢？<br>首先浮动元素要怎么样才会发生重叠呢，设置其margin-top为负数即可。我们看看例子：<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span>&gt;</span></span><br><span class="line">            在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前。</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"overlay"</span>&gt;</span></span><br><span class="line">            浮动元素重叠</span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-bottom</span>:<span class="value"> <span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">50px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#00ff21</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">250px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.overlay</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">background-color</span>:<span class="value"> orangered</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> -<span class="number">30px</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图如下：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo13.jpg" alt="浮动元素的重叠问题" title="浮动元素的重叠问题"><br>如果浮动元素不设置负margin时，是这样的<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo14.jpg" alt="浮动元素的重叠问题" title="浮动元素的重叠问题"></p>
+<p>在这个例子中，可以看到p中正常流元素span的内容会显示在浮动元素上面。<br>我们给设置span设置背景图片试试，效果如下：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo15.jpg" alt="浮动元素的重叠问题：有背景图" title="浮动元素的重叠问题：有背景图"></p>
+<p>元素设置背景后，重叠的部分还是会显示背景</p>
+<p>如果是span标签换成div标签会怎么样呢？<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"background-image:url(../images/banner1.jpg)"</span>&gt;</span></span><br><span class="line">         在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前。</span><br><span class="line">     <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"overlay"</span>&gt;</span></span><br><span class="line">         浮动元素重叠</span><br><span class="line">     <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo16.jpg" alt="浮动元素的重叠问题：块级元素有背景图" title="浮动元素的重叠问题：块级元素有背景图"><br>这种情况下，重叠的部分不会显示背景图片。</p>
+<p>总结一下这两种情况的区别：<br>1、行内元素与浮动元素发生重叠，其边框，背景和内容都会显示在浮动元素之上<br>2、块级元素与浮动元素发生重叠时，边框和背景会显示在浮动元素之下，内容会显示在浮动元素之上</p>
+<h3 id="clear属性">clear属性</h3><p>有的时候，我们不希望一些元素会被旁边的浮动元素影响到，这个时候就需要用到clear属性了。<br>clear属性：确保当前元素的左右两侧不会有浮动元素。<br>我们举个例子进行说明：<br>假设有3个浮动的div如下所示：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo17.jpg" alt="3个浮动元素" title="浮动元素的重叠问题：3个浮动元素"></p>
+<p>它的HTML代码和CSS代码如下<br>HTML代码：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class">.float</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">150px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#0094ff</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">5px</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.cl</span> <span class="rules">&#123; <span class="rule"><span class="attribute">clear</span>:<span class="value"> left</span></span>; &#125;</span></span><br><span class="line"><span class="class">.cr</span> <span class="rules">&#123; <span class="rule"><span class="attribute">clear</span>:<span class="value"> right</span></span>; &#125;</span></span><br><span class="line"><span class="class">.cb</span> <span class="rules">&#123; <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>假设有我们有想让第二个浮动元素另起一行进行浮动，那该怎么做呢？<br>根据clear属性的定义：确保当前元素的左右两侧不会有浮动元素。<br>我们对第一个浮动元素添加clear:right保证其右侧不会有浮动元素。修改HTML代码如下：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float cr"</span>&gt;浮动元素<span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>查看效果发现没有什么变化<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo17.jpg" alt="第1个元素清除浮动" title="浮动元素的重叠问题：第1个元素清除浮动"></p>
+<p>这种方法是错误的！！</p>
+<p>那我们试试给第二个元素添加clear:left保证其左侧不会出现浮动元素。修改HTML代码如下：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">1</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float cl"</span>&gt;浮动元素<span class="number">2</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"float"</span>&gt;浮动元素<span class="number">3</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo18.jpg" alt="第2个元素清除浮动" title="浮动元素的重叠问题：第2个元素清除浮动"><br>可以看到这次clear属性有效果了。</p>
+<p>同样是设置clear属性，为什么会出现这样的结果呢？<br>使用clear属性的时候要记住：<strong>clear只对元素本身的布局起作用</strong>。<br>在前面的例子中，第一个浮动元素添加了clear属性，它并不会影响到其他元素的布局，只会影响自己，所以第二个浮动元素并不会另起一行。<br>而第二个浮动元素设置了clear后，我们可以看到clear作用于自己，所以元素另起一行。</p>
+<h3 id="清除浮动">清除浮动</h3><p>清除浮动是一个经常提到的东西，首先我们要理解使用浮动会带来什么问题，以及为什么要清除浮动。<br>我们知道，一个块级元素如果没有设置height，其height是由子元素撑开的。对子元素使用了浮动之后，子元素会脱离标准文档流，也就是说，父级元素中没有内容可以撑开其高度，这样父级元素的height就会被忽略，这就是所谓的高度塌陷。要解决这样的问题，我们就是要使用清除浮动。<br>清除浮动有很多方法，下面我们一一说明每一种方法。</p>
+<p>对于IE浏览器来说，要清除浮动带来的问题，只需要触发器hasLayout就可以，直接设置样式zoom:1就可以触发。关于hasLayout的知识，这里暂不详述，以后我们专门来讲讲这个东西，感兴趣的同学可以先查查相关资料。</p>
+<p>对于非IE浏览器，主要有下面几种方法：</p>
+<h4 id="增加额外的div">增加额外的div</h4><p>这是最简单直接的方法，哪里有浮动元素，就在其父级元素后增加一个<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> style=<span class="string">"clear:both"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样就会清除浮动元素带来的问题。<br>优点：简单直接，初学者常常使用的方法，也易于理解<br>缺点：增加额外的无意义标签，不利于语义化，每次清除都要添加额外的空标签，造成浪费</p>
+<h4 id="父级元素添加overflow:hidden">父级元素添加overflow:hidden</h4><p>这个方法的关键在于触发了BFC，BFC是CSS中的难点之一，我们以后专门来学习这个概念。现在只需要知道它可以清除浮动带来的影响。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span><span class="rules">&#123;<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;<span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span>&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>优点：代码量少，没有额外的标签<br>缺点：如果子元素超出父元素的范围，会造成超出的部分被隐藏</p>
+<h4 id="after伪元素">after伪元素</h4><p>after表示子元素的后面，通过它可以设置一个具有clear的元素，然后将其隐藏<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">clearfix</span>:<span class="value">&#123;</span><br><span class="line">    zoom:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">clearfix:after&#123;</span><br><span class="line">    display:block</span></span>; <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">''</span></span></span>; <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">visibility</span>:<span class="value">hidden</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种方法的远离和第一个方法一样，就是生成一个元素来清除浮动，只是这个元素是“假的”。<br>优点：没有额外标签，综合起来算是比较好的方法<br>缺点：稍显复杂，但是理解其原理后也挺简单的<br>推荐使用这种方法。</p>
+<h3 id="float的应用">float的应用</h3><p>说了这么多float的原理和可能造成的问题，接下来我们就要谈谈float的应用。</p>
+<h4 id="文字环绕效果">文字环绕效果</h4><p>float最初的应用就是文字环绕效果，这对图文并茂的文章很有用。我们简单的距离说明一下：<br>HTML代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"box"</span>&gt;</span><br><span class="line">        &lt;img src=<span class="string">"1.jpg"</span> <span class="type">class</span>=<span class="string">"float"</span> /&gt;</span><br><span class="line">        我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字我是环绕的文字</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#00ff90</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">10px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; &#125;</span>  </span><br><span class="line"><span class="class">.float</span> <span class="rules">&#123;<span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#0094ff</span> none repeat scroll <span class="number">0</span> <span class="number">0</span></span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;<span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;<span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">5px</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">400px</span></span></span>;&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo19.jpg" alt="文字环绕效果" title="文字环绕效果"></p>
+<p>这样很轻松的实现了文字环绕效果。</p>
+<h4 id="横向菜单排列">横向菜单排列</h4><p>在之前提到的display:inline的文章<a href="http://luopq.com/2015/11/01/display-inline-block/">详解CSS display:inline-block的应用</a>中，我们提到了横向排列菜单的实现，最早是利用float属性来实现的，它可以很简单的实现横向菜单的效果。<br>HTML代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"menu clearfix"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>首页<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>政治<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>娱乐<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>体育<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>游戏<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">.clearfix</span>:<span class="value"> &#123; zoom: <span class="number">1</span></span></span>; &#125;</span><br><span class="line">    <span class="rule"><span class="attribute">.clearfix</span>:<span class="value">after &#123; display: block</span></span>; <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">''</span></span></span>; <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>; &#125;</span><br><span class="line"><span class="class">.menu</span> <span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#0094ff</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">500px</span></span></span>; &#125;</span></span><br><span class="line">    <span class="class">.menu</span> <span class="tag">li</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>; <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> none</span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图：<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo20.jpg" alt="横向菜单" title="横向菜单"><br>这种方式可以很轻松的实现横向菜单效果，但需要注意的是要注意清除浮动，推荐使用display:inline-block来实现</p>
+<h4 id="布局">布局</h4><p>float最经常使用的场景就是布局。使用float可以很简单的实现布局，而且易于理解。下面我们来实现一个三栏两列的固定布局。<br>HTML代码：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"header"</span>&gt;</span><br><span class="line">    我是头部</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"content clearfix"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"side"</span>&gt;左侧&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"main"</span>&gt;</span><br><span class="line">        右侧</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"footer"</span>&gt;</span><br><span class="line">    我是底部</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">.clearfix</span>:<span class="value"> &#123; zoom: <span class="number">1</span></span></span>; &#125;</span><br><span class="line">    <span class="rule"><span class="attribute">.clearfix</span>:<span class="value">after &#123; display: block</span></span>; <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">''</span></span></span>; <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>; &#125;</span><br><span class="line"><span class="class">.header</span>, <span class="class">.footer</span> <span class="rules">&#123; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">50px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#0094ff</span></span></span>; <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>; &#125;</span></span><br><span class="line"><span class="class">.content</span> <span class="rules">&#123; <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span> auto</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1000px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#000000</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.side</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">500px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">280px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ff006e</span></span></span>; &#125;</span></span><br><span class="line"><span class="class">.main</span> <span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">500px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">700px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#fbcfcf</span></span></span>; &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图<br><img src="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo21.jpg" alt="三栏两列布局" title="三栏两列布局"><br>这就是一个很常见的布局，要注意的就是清除浮动的问题。</p>
+<p>float常见的应用大概是这几种，当然它存在着更多的应用等待着大家去挖掘，欢迎交流！！</p>
+<h3 id="总结">总结</h3><p>float属性是一个频繁用到的属性，要用好它就要理解它的特性，否则容易云里雾里搞不清楚状况。关于float，最重要的是要理解下面几点：<br>1.float会造成元素脱离文档流<br>2.float影响元素的几个规则<br>3.浮动带来的问题以及如何清除浮动</p>
+</span>
+      
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag">#CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/03/design-pattern-factory/" rel="next">Javascript设计模式理论与实战：简单工厂模式</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/11/08/CSS-float/"
+                   data-title="详解CSS float属性" data-url="http://luopq.com/2015/11/08/CSS-float/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/about"><img class="site-author-image" src="http://tp4.sinaimg.cn/1836010911/180/5614933698/1" alt="LuoPQ" itemprop="image" title="LuoPQ"/></a>
+          <p class="site-author-name" itemprop="name">LuoPQ</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+                     
+              <a href="/about" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                About
+              </a>
+          
+                     
+              <a href="/books" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                Books
+              </a>
+          
+          
+          </div>
+        
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lrzw32" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#float的详细细节"><span class="nav-number">2.</span> <span class="nav-text">float的详细细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#float特殊情况"><span class="nav-number">3.</span> <span class="nav-text">float特殊情况</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动元素的延伸性"><span class="nav-number">3.1.</span> <span class="nav-text">浮动元素的延伸性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动元素超出父级元素的padding"><span class="nav-number">3.2.</span> <span class="nav-text">浮动元素超出父级元素的padding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重叠问题"><span class="nav-number">3.3.</span> <span class="nav-text">重叠问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear属性"><span class="nav-number">4.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动"><span class="nav-number">5.</span> <span class="nav-text">清除浮动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#增加额外的div"><span class="nav-number">5.1.</span> <span class="nav-text">增加额外的div</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父级元素添加overflow:hidden"><span class="nav-number">5.2.</span> <span class="nav-text">父级元素添加overflow:hidden</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#after伪元素"><span class="nav-number">5.3.</span> <span class="nav-text">after伪元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#float的应用"><span class="nav-number">6.</span> <span class="nav-text">float的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字环绕效果"><span class="nav-number">6.1.</span> <span class="nav-text">文字环绕效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#横向菜单排列"><span class="nav-number">6.2.</span> <span class="nav-text">横向菜单排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局"><span class="nav-number">6.3.</span> <span class="nav-text">布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuoPQ</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"luopq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
