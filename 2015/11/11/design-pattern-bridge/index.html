@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="电影," />
+  <meta name="keywords" content="Javascript,设计模式," />
 
 
 
@@ -41,16 +41,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="description" content="桥接模式将抽象部分与实现部分分离开来，使两者都可以独立的变化，并且可以一起和谐地工作。抽象部分和实现部分都可以独立的变化而不会互相影响，降低了代码的耦合性，提高了代码的扩展性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蚁人和头脑特工队">
-<meta property="og:url" content="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/index.html">
+<meta property="og:title" content="Javascript设计模式理论与实战：桥接模式">
+<meta property="og:url" content="http://luopq.com/2015/11/11/design-pattern-bridge/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
-<meta property="og:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
-<meta property="og:updated_time" content="2015-10-26T13:16:21.673Z">
+<meta property="og:description" content="桥接模式将抽象部分与实现部分分离开来，使两者都可以独立的变化，并且可以一起和谐地工作。抽象部分和实现部分都可以独立的变化而不会互相影响，降低了代码的耦合性，提高了代码的扩展性。">
+<meta property="og:updated_time" content="2015-11-11T14:40:29.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蚁人和头脑特工队">
-<meta name="twitter:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="twitter:title" content="Javascript设计模式理论与实战：桥接模式">
+<meta name="twitter:description" content="桥接模式将抽象部分与实现部分分离开来，使两者都可以独立的变化，并且可以一起和谐地工作。抽象部分和实现部分都可以独立的变化而不会互相影响，降低了代码的耦合性，提高了代码的扩展性。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 蚁人和头脑特工队 | 狼狼的蓝胖子 </title>
+  <title> Javascript设计模式理论与实战：桥接模式 | 狼狼的蓝胖子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -177,7 +177,7 @@
           
           
             
-              蚁人和头脑特工队
+              Javascript设计模式理论与实战：桥接模式
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-10-17T18:01:02+08:00" content="2015-10-17">
-            2015-10-17
+          <time itemprop="dateCreated" datetime="2015-11-11T22:37:21+08:00" content="2015-11-11">
+            2015-11-11
           </time>
         </span>
 
@@ -196,8 +196,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/娱乐/" itemprop="url" rel="index">
-                  <span itemprop="name">娱乐</span>
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
                 </a>
               </span>
 
@@ -212,8 +212,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/" itemprop="commentsCount"></span>
+              <a href="/2015/11/11/design-pattern-bridge/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/design-pattern-bridge/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,25 +223,23 @@
 
     <div class="post-body">
       
-      <p>原文地址：<a href="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/</a></p>
+      <p>原文地址：<a href="http://luopq.com/2015/11/11/design-pattern-bridge/">http://luopq.com/2015/11/11/design-pattern-bridge/</a></p>
       
 
       
       
 
       
-        <span itemprop="articleBody"><p>&emsp;&emsp;国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西</p>
-<h4 id="蚁人">蚁人</h4><p>&emsp;&emsp;又一部典型的超级英雄片,落魄的主角如何逆袭成为英雄，但不同于其他英雄，他只是想成为自己女儿心中的英雄。整篇看下来幽默搞笑，又萌又酷的英雄，逗比的配角插科打诨的本事无缝穿插中，最后的结局也很温馨。  </p>
-<p>&emsp;&emsp;主角变小后的微观视角很棒，我相信很多人都会想象自己变小后的感受。在浴缸，D厅，下水道，电路板，还有最后的在iphone手机和玩具里的打斗，每个场景都很有想象力。微观视角和正常视角的切换十分自然，充满幽默感。</p>
-<p>&emsp;&emsp;除了主角本身充满喜剧效果，三个逗比同伙表现得也很棒，各有特点。不同于其他严肃的英雄导师，发明蚁人盔甲的导师也时不时冒出几句逗乐观众的台词。我喜欢这种有亮点但有不抢镜的配角安排。</p>
-<p>&emsp;&emsp;影片中的打斗戏很棒，主角忽大忽小的变换和打斗很酷而且自带萌点和趣味。他没有什么特别具有杀伤力的招数，有的只是普通人的拳头，关键在于怎么灵活运用自己变小的能力来击败对手。</p>
-<p>&emsp;&emsp;对于这类标准的美国英雄片，我最不喜欢的大概就是和主角对立的反派总是拥有和主角类似的超能力，而且能力更强大。在前面反派介绍自己黄蜂战衣的时候，大概就能猜出反派是个什么样的人物了。</p>
-<p>&emsp;&emsp;总的来说，一部让我喜欢的英雄电影，4星推荐。</p>
-<h4 id="头脑特工队">头脑特工队</h4><p>&emsp;&emsp;特别有创意特别有想象力的一部动画片，第一次发现我们的情绪，思维还可以通过这样的形式表现出来。虽然是一部动画片，但感觉这是一部更适合大人看的动画片。</p>
-<p>&emsp;&emsp;影片中很有想象力的将我们情绪展现为头脑中住的五个代表不同情绪的小家伙来掌控。由乐乐为领导，控制着整个大脑的运行，努力为小女孩创造更多的美好记忆。在乐乐和忧忧因为意外脱离控制总部，进入大脑运行的世界。脑中世界不同的岛屿代表不同的情感联系，记忆垃圾场，造梦工厂，想象出来的伙伴，记忆清理工，很形象的展示了大脑的运行。</p>
-<p>&emsp;&emsp;与其他情绪不同的是，悲伤具有感染记忆的能力，她能让曾经美好的记忆带点忧伤的成分，所以快乐总是在阻止悲伤接触任何东西，甚至画了一个圈来限制悲伤的行动自由，但没有忧伤的情绪显然是不完整的。在脑中世界和忧伤一起经历过各种冒险的领导快乐也知道应该让忧伤去做她适合的工作，让重塑的情感岛屿更具坚固性。</p>
-<p>&emsp;&emsp;影片中也展示了爸爸和妈妈脑袋里的五个家伙。爸爸脑袋里领导情绪是愤怒，妈妈里的领导情绪是忧伤，而小女孩的领导情绪是快乐。什么样的情绪主导，整个人表现出来的状态就是怎么样的。随着成长和精力，我们的情绪领导也许会从最初的快乐在进行转变，我们肯定悲伤的价值，但我们应该让快乐成为主导。</p>
-<p>&emsp;&emsp;我脑海的的情绪小家伙，又是怎么样的组成呢？</p>
+        <span itemprop="articleBody"><p>桥接模式将抽象部分与实现部分分离开来，使两者都可以独立的变化，并且可以一起和谐地工作。抽象部分和实现部分都可以独立的变化而不会互相影响，降低了代码的耦合性，提高了代码的扩展性。</p>
+<h3 id="基本理论">基本理论</h3><p>桥接模式定义：将抽象部分与它的实现部分分离，使它们都可以独立地变化。<br>桥接模式主要有4个角色组成：<br>（1）抽象类<br>（2）扩充抽象类<br>（3）实现类接口<br>（4）具体实现类<br>根据javascript语言的特点，我们将其简化成2个角色：<br>（1）扩充抽象类<br>（2）具体实现类<br>怎么去理解桥接模式呢？我们接下来举例说明</p>
+<h3 id="桥接模式的实现">桥接模式的实现</h3><p>理解桥接模式的思想，关键是要理解其分离抽象部分和实现部分的思想。我们举例进行说明</p>
+<h4 id="最简单的桥接模式">最简单的桥接模式</h4><p>其实我们最经常用的jQuery的each函数就是一个典型的桥接模式，我们模拟其实现如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">each</span> = <span class="function"><span class="keyword">function</span> <span class="params">(arr, fn)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> val = arr[i];</span><br><span class="line">        <span class="keyword">if</span> (fn.call(val, i, val, arr)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">each</span>(arr, <span class="function"><span class="keyword">function</span> <span class="params">(i, v)</span> </span>&#123;</span><br><span class="line">    arr[i] = v * <span class="number">2</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们通过each函数循环了arr数组，别看这个例子很常见，但其中就包含了典型的桥接模式。<br>在这个例子中，抽象部分是each函数，也就是上面说的扩充抽象类，实现部分是fn，即具体实现类。抽象部分和实现部分可以独立的进行变化。这个例子虽然简单，但就是一个典型的桥接模式的应用。</p>
+<h4 id="插件开发中的桥接模式">插件开发中的桥接模式</h4><p>桥接模式的一个适用场景是组件开发。我们平时开发组件为了适应不同场合，组件相应的会有许多不同维度的变化。桥接模式就可以应用于此，将其抽象与实现分离，使组件的扩展性更高。<br>假设我们要开发一个弹窗插件，弹窗有不同的类型：普通消息提醒，错误提醒，每一种提醒的展示方式还都不一样。这是一个典型的多维度变化的场景。首先我们定义两个类：普通消息弹窗和错误消息弹窗。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MessageDialog</span><span class="params">(animation)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.animation = animation;</span><br><span class="line">&#125;</span><br><span class="line">MessageDialog.prototype.show = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.animation.show();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ErrorDialog</span><span class="params">(animation)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.animation = animation;</span><br><span class="line">&#125;</span><br><span class="line">ErrorDialog.prototype.show = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.animation.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这两个类就是前面提到的抽象部分，也就是扩充抽象类，它们都包含一个成员animation。<br>两种弹窗通过show方法进行显示，但是显示的动画效果不同。我们定义两种显示的效果类如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LinerAnimation</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">LinerAnimation.prototype.show = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"it is liner"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">EaseAnimation</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">EaseAnimation.prototype.show = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"it is ease"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这两个类就是具体实现类，它们实现具体的显示效果。那我们如何调用呢？<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="keyword">new</span> MessageDialog(<span class="keyword">new</span> LinerAnimation());</span><br><span class="line">message.show();</span><br><span class="line"><span class="keyword">var</span> error = <span class="keyword">new</span> ErrorDialog(<span class="keyword">new</span> EaseAnimation());</span><br><span class="line">error.show();</span><br></pre></td></tr></table></figure></p>
+<p>如果我们要增加一种动画效果，可以再定义一种效果类，传入即可。</p>
+<h3 id="总结">总结</h3><p>学习桥接模式关键是要理解抽象部分与实现部分的分离，使得二者可以独立的变化，而不必拘泥于形式。JS插件灵活的变化，适用场景的多变就非常适合使用这种模式来实现。使用桥接模式最重要的是要找出系统中不同的变化维度。</p>
 </span>
       
 
@@ -252,7 +250,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/电影/" rel="tag">#电影</a>
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -261,13 +261,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/CSS-Box-Model/" rel="prev">详解CSS盒模型</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/learn-markdown/" rel="next">Markdown基本语法</a>
+              <a href="/2015/11/10/desgin-pattern-adapter/" rel="next">Javascript设计模式理论与实战：适配器模式</a>
             
           </div>
         </div>
@@ -319,8 +317,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/"
-                   data-title="蚁人和头脑特工队" data-url="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">
+              <div class="ds-thread" data-thread-key="2015/11/11/design-pattern-bridge/"
+                   data-title="Javascript设计模式理论与实战：桥接模式" data-url="http://luopq.com/2015/11/11/design-pattern-bridge/">
               </div>
             
           </div>
@@ -433,7 +431,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#蚁人"><span class="nav-number">1.</span> <span class="nav-text">蚁人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头脑特工队"><span class="nav-number">2.</span> <span class="nav-text">头脑特工队</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本理论"><span class="nav-number">1.</span> <span class="nav-text">基本理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥接模式的实现"><span class="nav-number">2.</span> <span class="nav-text">桥接模式的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最简单的桥接模式"><span class="nav-number">2.1.</span> <span class="nav-text">最简单的桥接模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插件开发中的桥接模式"><span class="nav-number">2.2.</span> <span class="nav-text">插件开发中的桥接模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
