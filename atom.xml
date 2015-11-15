@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我只是想写点字]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://luopq.com/"/>
-  <updated>2015-11-15T02:18:12.775Z</updated>
+  <updated>2015-11-15T02:21:05.709Z</updated>
   <id>http://luopq.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://luopq.com/2015/11/15/css-position/"/>
     <id>http://luopq.com/2015/11/15/css-position/</id>
     <published>2015-11-15T02:05:16.000Z</published>
-    <updated>2015-11-15T02:18:12.775Z</updated>
+    <updated>2015-11-15T02:21:05.709Z</updated>
     <content type="html"><![CDATA[<p>position是CSS中非常重要的一个属性，通过position属性，我们可以让元素相对于其正常位置，父元素或者浏览器窗口进行偏移。postion也是初学者容易搞不清楚状况的一个属性，本文将从最基础的知识讲起，谈谈关于positon属性的方方面面。</p>
 <h3 id="基础知识">基础知识</h3><p>postion属性我们成为定位，它有4个不同类型的定位，这些类型会影响元素的生成方式，下面我们详细说明position属性。</p>
 <h4 id="position四种类型">position四种类型</h4><p>（1）static<br>static是position属性的默认值，默认情况下，块级元素和行内元素按照各自的特性进行显示<br>（2）relative<br>relative翻译成中文称相对定位，设置了这个属性后，元素会根据top，left，bottom，right进行偏移，关键点是它原本的空间仍然保留。我们看下面例子：<br>HTML代码<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"relative"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;<span class="keyword">div</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
@@ -61,7 +61,7 @@
 <h3 id="总结">总结</h3><p>position属性是一个容易让初学者迷惑的属性，尤其是absolute和relative的应用。要用好它们，首先要从absolute和relative的基本特性开始了解，理解了他们的特性之后应用起来就得心应手了，了解基本原理后，多多写几个例子从实践中去体会它们的特性，慢慢的就会熟悉了。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[position是CSS中非常重要的一个属性，通过position属性，我们可以让元素相对于其正常位置，父元素或者浏览器窗口进行偏移。postion也是初学者容易搞不清楚状况的一个属性，本文将从最基础的知识讲起，谈谈关于positon属性的方方面面。]]>
+    <![CDATA[position是CSS中非常重要的一个属性，通过position属性，我们可以让元素相对于其正常位置，父元素或者浏览器窗口进行偏移。postion也是初学者容易搞不清楚状况的一个属性，本文将从最基础的知识讲起，谈谈关于positon属性的一些理论与应用。]]>
     
     </summary>
     
