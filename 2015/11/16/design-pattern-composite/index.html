@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="电影," />
+  <meta name="keywords" content="Javascript,设计模式," />
 
 
 
@@ -41,16 +41,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="description" content="我们平时开发过程中，一定会遇到这种情况：同时处理简单对象和由简单对象组成的复杂对象，这些简单对象和复杂对象会组合成树形结构，在客户端对其处理的时候要保持一致性。比如电商网站中的产品订单，每一张产品订单可能有多个子订单组合，比如操作系统的文件夹，每个文件夹有多个子文件夹或文件，我们作为用户对其进行复制，删除等操作时，不管是文件夹还是文件，对我们操作者来说是一样的。在这种场景下，就非常适合使用组合模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蚁人和头脑特工队">
-<meta property="og:url" content="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/index.html">
+<meta property="og:title" content="Javascript设计模式理论与实战：组合模式">
+<meta property="og:url" content="http://luopq.com/2015/11/16/design-pattern-composite/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
-<meta property="og:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
-<meta property="og:updated_time" content="2015-10-26T13:16:21.673Z">
+<meta property="og:description" content="我们平时开发过程中，一定会遇到这种情况：同时处理简单对象和由简单对象组成的复杂对象，这些简单对象和复杂对象会组合成树形结构，在客户端对其处理的时候要保持一致性。比如电商网站中的产品订单，每一张产品订单可能有多个子订单组合，比如操作系统的文件夹，每个文件夹有多个子文件夹或文件，我们作为用户对其进行复制，删除等操作时，不管是文件夹还是文件，对我们操作者来说是一样的。在这种场景下，就非常适合使用组合模式">
+<meta property="og:updated_time" content="2015-11-24T15:29:18.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蚁人和头脑特工队">
-<meta name="twitter:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="twitter:title" content="Javascript设计模式理论与实战：组合模式">
+<meta name="twitter:description" content="我们平时开发过程中，一定会遇到这种情况：同时处理简单对象和由简单对象组成的复杂对象，这些简单对象和复杂对象会组合成树形结构，在客户端对其处理的时候要保持一致性。比如电商网站中的产品订单，每一张产品订单可能有多个子订单组合，比如操作系统的文件夹，每个文件夹有多个子文件夹或文件，我们作为用户对其进行复制，删除等操作时，不管是文件夹还是文件，对我们操作者来说是一样的。在这种场景下，就非常适合使用组合模式">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 蚁人和头脑特工队 | 狼狼的蓝胖子 </title>
+  <title> Javascript设计模式理论与实战：组合模式 | 狼狼的蓝胖子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -177,7 +177,7 @@
           
           
             
-              蚁人和头脑特工队
+              Javascript设计模式理论与实战：组合模式
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-10-17T18:01:02+08:00" content="2015-10-17">
-            2015-10-17
+          <time itemprop="dateCreated" datetime="2015-11-16T12:41:39+08:00" content="2015-11-16">
+            2015-11-16
           </time>
         </span>
 
@@ -196,8 +196,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/娱乐/" itemprop="url" rel="index">
-                  <span itemprop="name">娱乐</span>
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
                 </a>
               </span>
 
@@ -212,8 +212,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/" itemprop="commentsCount"></span>
+              <a href="/2015/11/16/design-pattern-composite/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/16/design-pattern-composite/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,25 +223,23 @@
 
     <div class="post-body">
       
-      <p>原文地址：<a href="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/</a></p>
+      <p>原文地址：<a href="http://luopq.com/2015/11/16/design-pattern-composite/">http://luopq.com/2015/11/16/design-pattern-composite/</a></p>
       
 
       
       
 
       
-        <span itemprop="articleBody"><p>&emsp;&emsp;国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西</p>
-<h4 id="蚁人">蚁人</h4><p>&emsp;&emsp;又一部典型的超级英雄片,落魄的主角如何逆袭成为英雄，但不同于其他英雄，他只是想成为自己女儿心中的英雄。整篇看下来幽默搞笑，又萌又酷的英雄，逗比的配角插科打诨的本事无缝穿插中，最后的结局也很温馨。  </p>
-<p>&emsp;&emsp;主角变小后的微观视角很棒，我相信很多人都会想象自己变小后的感受。在浴缸，D厅，下水道，电路板，还有最后的在iphone手机和玩具里的打斗，每个场景都很有想象力。微观视角和正常视角的切换十分自然，充满幽默感。</p>
-<p>&emsp;&emsp;除了主角本身充满喜剧效果，三个逗比同伙表现得也很棒，各有特点。不同于其他严肃的英雄导师，发明蚁人盔甲的导师也时不时冒出几句逗乐观众的台词。我喜欢这种有亮点但有不抢镜的配角安排。</p>
-<p>&emsp;&emsp;影片中的打斗戏很棒，主角忽大忽小的变换和打斗很酷而且自带萌点和趣味。他没有什么特别具有杀伤力的招数，有的只是普通人的拳头，关键在于怎么灵活运用自己变小的能力来击败对手。</p>
-<p>&emsp;&emsp;对于这类标准的美国英雄片，我最不喜欢的大概就是和主角对立的反派总是拥有和主角类似的超能力，而且能力更强大。在前面反派介绍自己黄蜂战衣的时候，大概就能猜出反派是个什么样的人物了。</p>
-<p>&emsp;&emsp;总的来说，一部让我喜欢的英雄电影，4星推荐。</p>
-<h4 id="头脑特工队">头脑特工队</h4><p>&emsp;&emsp;特别有创意特别有想象力的一部动画片，第一次发现我们的情绪，思维还可以通过这样的形式表现出来。虽然是一部动画片，但感觉这是一部更适合大人看的动画片。</p>
-<p>&emsp;&emsp;影片中很有想象力的将我们情绪展现为头脑中住的五个代表不同情绪的小家伙来掌控。由乐乐为领导，控制着整个大脑的运行，努力为小女孩创造更多的美好记忆。在乐乐和忧忧因为意外脱离控制总部，进入大脑运行的世界。脑中世界不同的岛屿代表不同的情感联系，记忆垃圾场，造梦工厂，想象出来的伙伴，记忆清理工，很形象的展示了大脑的运行。</p>
-<p>&emsp;&emsp;与其他情绪不同的是，悲伤具有感染记忆的能力，她能让曾经美好的记忆带点忧伤的成分，所以快乐总是在阻止悲伤接触任何东西，甚至画了一个圈来限制悲伤的行动自由，但没有忧伤的情绪显然是不完整的。在脑中世界和忧伤一起经历过各种冒险的领导快乐也知道应该让忧伤去做她适合的工作，让重塑的情感岛屿更具坚固性。</p>
-<p>&emsp;&emsp;影片中也展示了爸爸和妈妈脑袋里的五个家伙。爸爸脑袋里领导情绪是愤怒，妈妈里的领导情绪是忧伤，而小女孩的领导情绪是快乐。什么样的情绪主导，整个人表现出来的状态就是怎么样的。随着成长和精力，我们的情绪领导也许会从最初的快乐在进行转变，我们肯定悲伤的价值，但我们应该让快乐成为主导。</p>
-<p>&emsp;&emsp;我脑海的的情绪小家伙，又是怎么样的组成呢？</p>
+        <span itemprop="articleBody"><p>我们平时开发过程中，一定会遇到这种情况：同时处理简单对象和由简单对象组成的复杂对象，这些简单对象和复杂对象会组合成树形结构，在客户端对其处理的时候要保持一致性。比如电商网站中的产品订单，每一张产品订单可能有多个子订单组合，比如操作系统的文件夹，每个文件夹有多个子文件夹或文件，我们作为用户对其进行复制，删除等操作时，不管是文件夹还是文件，对我们操作者来说是一样的。在这种场景下，就非常适合使用组合模式来实现。</p>
+<h3 id="基本知识">基本知识</h3><p>组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用具有一致性。<br>组合模式主要有三个角色：<br>（1）抽象组件（Component）：抽象类，主要定义了参与组合的对象的公共接口<br>（2）子对象（Leaf）：组成组合对象的最基本对象<br>（3）组合对象（Composite）：由子对象组合起来的复杂对象<br>理解组合模式的关键是要理解组合模式对单个对象和组合对象使用的一致性，我们接下来说说组合模式的实现加深理解。</p>
+<h3 id="组合模式的实现">组合模式的实现</h3><h4 id="最简单的组合模式">最简单的组合模式</h4><p>HTML文档的DOM结构就是天生的树形结构，最基本的元素醉成DOM树，最终形成DOM文档，非常适用适用组合模式。<br>我们常用的jQuery类库，其中组合模式的应用更是频繁，例如经常有下列代码实现：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".test"</span>).addClass(<span class="string">"noTest"</span>).<span class="keyword">remove</span>(<span class="string">"test"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这句简单的代码就是获取class包含test的元素，然后进行addClass和removeClass处理，其中不论$(“.test”)是一个元素，还是多个元素，最终都是通过统一的addClass和removeClass接口进行调用。<br>我们简单模拟一下addClass的实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addClass = <span class="function"><span class="keyword">function</span> (<span class="params">eles, className</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (eles <span class="keyword">instanceof</span> NodeList) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = eles.length; i &lt; length; i++) &#123;</span><br><span class="line">            eles[i].nodeType === <span class="number">1</span> &amp;&amp; (eles[i].className += (<span class="string">' '</span> + className + <span class="string">' '</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (eles <span class="keyword">instanceof</span> Node) &#123;</span><br><span class="line">        eles.nodeType === <span class="number">1</span> &amp;&amp; (eles.className += (<span class="string">' '</span> + className + <span class="string">' '</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">"eles is not a html node"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">addClass(<span class="built_in">document</span>.getElementById(<span class="string">"div3"</span>), <span class="string">"test"</span>);</span><br><span class="line">addClass(<span class="built_in">document</span>.querySelectorAll(<span class="string">".div"</span>), <span class="string">"test"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这段代码简单的模拟了addClass的实现（暂不考虑兼容性和通用性），很简单地先判断节点类型，然后根据不同类型添加className。对于NodeList或者是Node来说，客户端调用都是同样的使用了addClass这个接口，这个就是组合模式的最基本的思想，使部分和整体的使用具有一致性。</p>
+<h4 id="典型的例子">典型的例子</h4><p>前面我们提到一个典型的例子：产品订单包含多个产品子订单，多个产品子订单组成一个复杂的产品订单。由于Javascript语言的特性，我们将组合模式的三个角色简化成2个角色：<br>（1）子对象：在这个例子中，子对象就是产品子订单<br>（2）组合对象：这里就是产品的总订单<br>假设我们开发一个旅游产品网站，其中包含机票和酒店两种子产品，我们定义了子对象如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FlightOrder</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">FlightOrder.prototyp.create = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"flight order created"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HotelOrder</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">HotelOrder.prototype.create = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"hotel order created"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码定义了两个类：机票订单类和酒店订单类，每个类都有各自的订单创建方法。<br>接下来我们创建一个总订单类：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TotalOrders</span><span class="params">()</span> &#123;</span></span><br><span class="line">    this.orderList = <span class="matrix">[]</span>;</span><br><span class="line">&#125;</span><br><span class="line">TotalOrders.prototype.addOrder = <span class="function"><span class="keyword">function</span> <span class="params">(order)</span> &#123;</span></span><br><span class="line">    this.orderList.push(order);</span><br><span class="line">&#125;</span><br><span class="line">TotalOrders.prototype.create = <span class="function"><span class="keyword">function</span> <span class="params">(order)</span> &#123;</span></span><br><span class="line">    <span class="keyword">for</span> (var <span class="built_in">i</span> = <span class="number">0</span>, <span class="built_in">length</span> = this.orderList.<span class="built_in">length</span>; <span class="built_in">i</span> &lt; <span class="built_in">length</span>; <span class="built_in">i</span>++) <span class="cell">&#123;</span><br><span class="line">        this.orderList[i].create();</span><br><span class="line">    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个对象主要有3个成员：订单列表，添加订单的方法，创建订单的方法。<br>在客户端使用的时候如下：<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> flight = <span class="keyword">new</span> FlightOrder();</span><br><span class="line">flight.<span class="keyword">create</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> orders = <span class="keyword">new</span> TotalOrders();</span><br><span class="line">orders.addOrder(<span class="keyword">new</span> FlightOrder());</span><br><span class="line">orders.addOrder(<span class="keyword">new</span> HotelOrder());</span><br><span class="line">orders.<span class="keyword">create</span>();</span><br></pre></td></tr></table></figure></p>
+<p>客户端调用展示了两种方式，一种是单一的创建机票订单，一种是创建多张订单，但最终都是通过create方法进行创建，这就是一个很典型的组合模式的应用场景。</p>
+<h3 id="总结">总结</h3><p>组合模式并不难理解，它主要解决的是单一对象和组合对象在使用方式上的一致性问题。如果对象具有明显的层次结构并且想要统一地使用它们，这就非常适合使用组合模式。在Web开发中，这种层次结构非常常见，很适合使用组合模式，尤其是对于JS来说，不用拘泥于传统面向对象语言的形式，灵活地利用JS语言的特性，达到对部分和整体使用的一致性。</p>
 </span>
       
 
@@ -252,7 +250,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/电影/" rel="tag">#电影</a>
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -261,13 +261,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/CSS-Box-Model/" rel="prev">详解CSS盒模型</a>
+              <a href="/2015/11/20/design-pattern-flyweight/" rel="prev">Javascript设计模式理论与实战：享元模式</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/learn-markdown/" rel="next">Markdown基本语法</a>
+              <a href="/2015/11/15/css-position/" rel="next">详解CSS position属性</a>
             
           </div>
         </div>
@@ -319,8 +319,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/"
-                   data-title="蚁人和头脑特工队" data-url="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">
+              <div class="ds-thread" data-thread-key="2015/11/16/design-pattern-composite/"
+                   data-title="Javascript设计模式理论与实战：组合模式" data-url="http://luopq.com/2015/11/16/design-pattern-composite/">
               </div>
             
           </div>
@@ -433,7 +433,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#蚁人"><span class="nav-number">1.</span> <span class="nav-text">蚁人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头脑特工队"><span class="nav-number">2.</span> <span class="nav-text">头脑特工队</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本知识"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合模式的实现"><span class="nav-number">2.</span> <span class="nav-text">组合模式的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最简单的组合模式"><span class="nav-number">2.1.</span> <span class="nav-text">最简单的组合模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#典型的例子"><span class="nav-number">2.2.</span> <span class="nav-text">典型的例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

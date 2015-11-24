@@ -41,16 +41,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="有的时候在开发过程中，我们会发现，客户端需要的接口和提供的接口发生不兼容的问题。由于特殊的原因我们无法修改客户端接口。在这种情况下，我们需要适配现有接口和不兼容的类，这就要提到适配器模式。通过适配器，我们可以在不用修改旧代码的情况下也能使用它们，这就是适配器的能力。">
+<meta name="description" content="享元模式不同于一般的设计模式，它主要用来优化程序的性能，它最适合解决大量类似的对象而产生的性能问题。享元模式通过分析应用程序的对象，将其解析为内在数据和外在数据，减少对象的数量，从而提高应用程序的性能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript设计模式理论与实战：适配器模式">
-<meta property="og:url" content="http://luopq.com/2015/11/10/desgin-pattern-adapter/index.html">
+<meta property="og:title" content="Javascript设计模式理论与实战：享元模式">
+<meta property="og:url" content="http://luopq.com/2015/11/20/design-pattern-flyweight/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
-<meta property="og:description" content="有的时候在开发过程中，我们会发现，客户端需要的接口和提供的接口发生不兼容的问题。由于特殊的原因我们无法修改客户端接口。在这种情况下，我们需要适配现有接口和不兼容的类，这就要提到适配器模式。通过适配器，我们可以在不用修改旧代码的情况下也能使用它们，这就是适配器的能力。">
-<meta property="og:updated_time" content="2015-11-10T15:01:59.123Z">
+<meta property="og:description" content="享元模式不同于一般的设计模式，它主要用来优化程序的性能，它最适合解决大量类似的对象而产生的性能问题。享元模式通过分析应用程序的对象，将其解析为内在数据和外在数据，减少对象的数量，从而提高应用程序的性能。">
+<meta property="og:updated_time" content="2015-11-24T15:29:18.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript设计模式理论与实战：适配器模式">
-<meta name="twitter:description" content="有的时候在开发过程中，我们会发现，客户端需要的接口和提供的接口发生不兼容的问题。由于特殊的原因我们无法修改客户端接口。在这种情况下，我们需要适配现有接口和不兼容的类，这就要提到适配器模式。通过适配器，我们可以在不用修改旧代码的情况下也能使用它们，这就是适配器的能力。">
+<meta name="twitter:title" content="Javascript设计模式理论与实战：享元模式">
+<meta name="twitter:description" content="享元模式不同于一般的设计模式，它主要用来优化程序的性能，它最适合解决大量类似的对象而产生的性能问题。享元模式通过分析应用程序的对象，将其解析为内在数据和外在数据，减少对象的数量，从而提高应用程序的性能。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> Javascript设计模式理论与实战：适配器模式 | 狼狼的蓝胖子 </title>
+  <title> Javascript设计模式理论与实战：享元模式 | 狼狼的蓝胖子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -177,7 +177,7 @@
           
           
             
-              Javascript设计模式理论与实战：适配器模式
+              Javascript设计模式理论与实战：享元模式
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-11-10T23:00:44+08:00" content="2015-11-10">
-            2015-11-10
+          <time itemprop="dateCreated" datetime="2015-11-20T11:47:03+08:00" content="2015-11-20">
+            2015-11-20
           </time>
         </span>
 
@@ -212,8 +212,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/11/10/desgin-pattern-adapter/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/10/desgin-pattern-adapter/" itemprop="commentsCount"></span>
+              <a href="/2015/11/20/design-pattern-flyweight/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/20/design-pattern-flyweight/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,25 +223,26 @@
 
     <div class="post-body">
       
-      <p>原文地址：<a href="http://luopq.com/2015/11/10/desgin-pattern-adapter/">http://luopq.com/2015/11/10/desgin-pattern-adapter/</a></p>
+      <p>原文地址：<a href="http://luopq.com/2015/11/20/design-pattern-flyweight/">http://luopq.com/2015/11/20/design-pattern-flyweight/</a></p>
       
 
       
       
 
       
-        <span itemprop="articleBody"><p>有的时候在开发过程中，我们会发现，客户端需要的接口和提供的接口发生不兼容的问题。由于特殊的原因我们无法修改客户端接口。在这种情况下，我们需要适配现有接口和不兼容的类，这就要提到适配器模式。通过适配器，我们可以在不用修改旧代码的情况下也能使用它们，这就是适配器的能力。</p>
-<h3 id="基本理论">基本理论</h3><p>适配器模式：将一个接口转换成客户端需要的接口而不需要去修改客户端代码，使得不兼容的代码可以一起工作。</p>
-<p>适配器主要有3个角色组成：<br>（1）客户端：调用接口的类<br>（2）适配器：用来连接客户端接口和提供服务的接口的类<br>（3）适配者：提供服务，但是却与客户端接口需求不兼容服务类。</p>
-<h3 id="适配器模式的实现">适配器模式的实现</h3><h4 id="最简单的适配器">最简单的适配器</h4><p>适配器模式没有想象中的那么复杂，举个最简单的例子。<br>客户端调用一个方法进行加法计算：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="literal">result</span> = add(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
-<p>但是我们没有提供add这个方法，提供了同样类似功能的sum方法：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(v1,v2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> v1 + v2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>为了避免修改客户端和服务端，我们增加一个包装函数：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">function</span> <span class="keyword">add </span>(<span class="literal">v1</span>,<span class="literal">v2</span>)&#123;</span><br><span class="line">    reutrn sum(<span class="literal">v1</span>,<span class="literal">v2</span>)<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这就是一个最简单的适配器模式，我们在两个不兼容的接口之间添加一个包装方法，用这个方法来连接二者使其共同工作。</p>
-<h4 id="实际应用">实际应用</h4><p>随着前端框架的发展，越来越多的开发者开始使用MVVM框架进行开发，只需要操作数据而不需要操作DOM元素，jQuery的作用越来越少。而很多项目中还是引用着jQuery库作用工具类，因为我们要利用jQuery提供的ajax去服务器请求数据。如果jQuery在项目中的作用仅仅是作为ajax工具库的话，有点杀鸡焉用牛刀的感觉，造成资源浪费。这个时候我们完全可以封装一个自己的ajax库。<br>假设我们封装的ajax就通过一个函数进行使用：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ajax(&#123;</span><br><span class="line">    url:<span class="string">'/getData'</span>,</span><br><span class="line">    <span class="built_in">type</span>:<span class="string">'Post'</span>,</span><br><span class="line">    dataType:<span class="string">'json'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        id:<span class="string">"123"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">.done(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>除了调用接口ajax与jQuery的$.ajax的不同，其他完全一样。<br>项目中请求ajax的地方必然很多，我们替换jQuery的时候不可能一个一个去修改$.ajax，那怎么办呢，这个时候，我们就可以增加一个适配器：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = &#123;</span><br><span class="line">    ajax:<span class="function"><span class="keyword">function</span> <span class="params">(options)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ajax(options);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这样就能兼容旧代码和新接口，避免对已有的代码的修改。</p>
-<h3 id="总结">总结</h3><p>适配器模式的原理很简单，就是新增一个包装类，对新的接口进行包装以适应旧代码的调用，避免修改接口和调用代码。</p>
-<p>适用场景：存在较多代码调用旧接口，为了避免修改旧代码和更换新接口，不影响现有实现方式的应用场景。</p>
+        <span itemprop="articleBody"><p>享元模式不同于一般的设计模式，它主要用来优化程序的性能，它最适合解决大量类似的对象而产生的性能问题。享元模式通过分析应用程序的对象，将其解析为内在数据和外在数据，减少对象的数量，从而提高应用程序的性能。</p>
+<h3 id="基本知识">基本知识</h3><p>享元模式通过共享大量的细粒度的对象，减少对象的数量，从而减少对象的内存，提高应用程序的性能。其基本思想就是分解现有类似对象的组成，将其展开为可以共享的内在数据和不可共享的外在数据，我们称内在数据的对象为享元对象。通常还需要一个工厂类来维护内在数据。<br>在JS中，享元模式主要有下面几个角色组成：<br>（1）客户端：用来调用享元工厂来获取内在数据的类，通常是应用程序所需的对象，<br>（2）享元工厂：用来维护享元数据的类<br>（3）享元类：保持内在数据的类</p>
+<h3 id="享元模式的实现和应用">享元模式的实现和应用</h3><h4 id="一般实现">一般实现</h4><p>我们举个例子进行说明：苹果公司批量生产iphone，iphone的大部分数据比如型号，屏幕都是一样，少数部分数据比如内存有分16G,32G等。未使用享元模式前，我们写代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Iphone</span><span class="params">(model, screen, memory, SN)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>. model  = model;</span><br><span class="line">    <span class="keyword">this</span>.screen = screen;</span><br><span class="line">    <span class="keyword">this</span>.memory = memory;</span><br><span class="line">    <span class="keyword">this</span>.SN = SN;</span><br><span class="line">&#125;</span><br><span class="line">var phones = [];</span><br><span class="line"><span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">    var memory = i % <span class="number">2</span> == <span class="number">0</span> ? <span class="number">16</span> : <span class="number">32</span>;</span><br><span class="line">    phones.push(<span class="keyword">new</span> Iphone(<span class="string">"iphone6s"</span>, <span class="number">5.0</span>, memory, i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码中，创建了一百万个iphone，每个iphone都独立申请一个内存。但是我们仔细观察可以看到，大部分iphone都是类似的，只是内存和序列号不一样，如果是一个对性能要求比较高的程序，我们就要考虑去优化它。<br>大量相似对象的程序，我们就可以考虑用享元模式去优化它，我们分析出大部分的iphone的型号，屏幕，内存都是一样的，那这部分数据就可以公用，就是享元模式中的内在数据，定义享元类如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">IphoneFlyweight</span><span class="params">(model, screen, memory)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.model = model;</span><br><span class="line">    <span class="keyword">this</span>.screen = screen;</span><br><span class="line">    <span class="keyword">this</span>.memory = memory;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们定义了iphone的享元类，其中包含型号，屏幕和内存三个数据。我们还需要一个享元工厂来维护这些数据：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> flyweightFactory = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> iphones = &#123;&#125;;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="keyword">get</span>: <span class="function"><span class="keyword">function</span> <span class="params">(model, screen, memory)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> key = model + screen + memory;</span><br><span class="line">            <span class="keyword">if</span> (!iphones[key]) &#123;</span><br><span class="line">                iphones[key] = <span class="keyword">new</span> IphoneFlyweight(model, screen, memory);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> iphones[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>在这个工厂中，我们定义了一个字典来保存享元对象，提供一个方法根据参数来获取享元对象，如果字典中有则直接返回，没有则创建一个返回。<br>接着我们创建一个客户端类，这个客户端类就是修改自iphone类：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Iphone</span><span class="params">(model, screen, memory, SN)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.flyweight = flyweightFactory.<span class="keyword">get</span>(model, screen, memory);</span><br><span class="line">    <span class="keyword">this</span>.SN = SN;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我们依旧像之间那样生成多个iphone<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var phones = [];</span><br><span class="line"><span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">    var memory = i % <span class="number">2</span> == <span class="number">0</span> ? <span class="number">16</span> : <span class="number">32</span>;</span><br><span class="line">    phones.push(<span class="keyword">new</span> Iphone(<span class="string">"iphone6s"</span>, <span class="number">5.0</span>, memory, i));</span><br><span class="line">&#125;</span><br><span class="line">console.<span class="built_in">log</span>(phones);</span><br></pre></td></tr></table></figure></p>
+<p>这里的关键就在于Iphone构造函数里面的this.flyweight = flyweightFactory.get(model, screen, memory)。这句代码通过享元工厂去获取享元数据，而在享元工厂里面，如果已经存在相同数据的对象则会直接返回对象，多个iphone对象共享这部分相同的数据，所以原本类似的数据已经大大减少，减少的内存的占用。</p>
+<h4 id="享元模式在DOM中的应用">享元模式在DOM中的应用</h4><p>享元模式的一个典型应用就是DOM事件操作，DOM事件机制分成事件冒泡和事件捕获。我们简单介绍一下这两者：<br>事件冒泡：绑定的事件从最里层的元素开始触发，然后冒泡到最外层<br>事件捕获：绑定的事件从最外层的元素开始触发，然后传到最里层<br>假设我们HTML中有一个菜单列表<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul <span class="keyword">class</span>=<span class="string">"menu"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项1&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项2&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项3&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项4&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项5&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">class</span>=<span class="string">"item"</span>&gt;选项6&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<p>点击菜单项，进行相应的操作，我们通过jQuery来绑定事件，一般会这么做：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".item"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="keyword">this</span>).text());</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>给每个列表项绑定事件，点击输出相应的文本。这样看暂时没有什么问题，但是如果是一个很长的列表，尤其是在移动端特别长的列表时，就会有性能问题，因为每个项都绑定了事件，都占用了内存。但是这些事件处理程序其实都是很类似的，我们就要对其优化。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".menu"</span>).on(<span class="string">"click"</span>, <span class="string">".item"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log($(<span class="keyword">this</span>).text());</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>通过这种方式进行事件绑定，可以减少事件处理程序的数量，这种方式叫做事件委托，也是运用了享元模式的原理。事件处理程序是公用的内在部分，每个菜单项各自的文本就是外在部分。我们简单说下事件委托的原理：点击菜单项，事件会从li元素冒泡到ul元素，我们绑定事件到ul上，实际上就绑定了一个事件，然后通过事件参数event里面的target来判断点击的具体是哪一个元素，比如低级第一个li元素，event.target就是li，这样就能拿到具体的点击元素了，就可以根据不同元素进行不同的处理。</p>
+<h3 id="总结">总结</h3><p>享元模式是一种优化程序性能的手段，通过共享公用数据来减少对象数量以达到优化程序的手段。享元模式适用于拥有大量类似对象并且对性能有要求的场景。因为享元模式需要分离内部和外部数据，增加了程序的逻辑复杂性，建议对性能有要求的时候才使用享元模式。</p>
 </span>
       
 
@@ -263,13 +264,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/11/design-pattern-bridge/" rel="prev">Javascript设计模式理论与实战：桥接模式</a>
+              <a href="/2015/11/24/design-pattern-observer/" rel="prev">Javascript设计模式理论与实战：观察者模式</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/10/design-pattern-factory-method/" rel="next">Javascript设计模式理论与实战：工厂方法模式</a>
+              <a href="/2015/11/16/design-pattern-composite/" rel="next">Javascript设计模式理论与实战：组合模式</a>
             
           </div>
         </div>
@@ -321,8 +322,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/11/10/desgin-pattern-adapter/"
-                   data-title="Javascript设计模式理论与实战：适配器模式" data-url="http://luopq.com/2015/11/10/desgin-pattern-adapter/">
+              <div class="ds-thread" data-thread-key="2015/11/20/design-pattern-flyweight/"
+                   data-title="Javascript设计模式理论与实战：享元模式" data-url="http://luopq.com/2015/11/20/design-pattern-flyweight/">
               </div>
             
           </div>
@@ -435,7 +436,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本理论"><span class="nav-number">1.</span> <span class="nav-text">基本理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适配器模式的实现"><span class="nav-number">2.</span> <span class="nav-text">适配器模式的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#最简单的适配器"><span class="nav-number">2.1.</span> <span class="nav-text">最简单的适配器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实际应用"><span class="nav-number">2.2.</span> <span class="nav-text">实际应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本知识"><span class="nav-number">1.</span> <span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#享元模式的实现和应用"><span class="nav-number">2.</span> <span class="nav-text">享元模式的实现和应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般实现"><span class="nav-number">2.1.</span> <span class="nav-text">一般实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#享元模式在DOM中的应用"><span class="nav-number">2.2.</span> <span class="nav-text">享元模式在DOM中的应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

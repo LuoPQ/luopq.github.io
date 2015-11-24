@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="电影," />
+  <meta name="keywords" content="Javascript,设计模式," />
 
 
 
@@ -41,16 +41,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="description" content="观察者模式主要应用于对象之间一对多的依赖关系，当一个对象发生改变时，多个对该对象有依赖的其他对象也会跟着做出相应改变，这就非常适合用观察者模式来实现。使用观察者模式可以根据需要增加或删除对象，解决一对多对象间的耦合关系，使程序更易于扩展和维护。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蚁人和头脑特工队">
-<meta property="og:url" content="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/index.html">
+<meta property="og:title" content="Javascript设计模式理论与实战：观察者模式">
+<meta property="og:url" content="http://luopq.com/2015/11/24/design-pattern-observer/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
-<meta property="og:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
-<meta property="og:updated_time" content="2015-10-26T13:16:21.673Z">
+<meta property="og:description" content="观察者模式主要应用于对象之间一对多的依赖关系，当一个对象发生改变时，多个对该对象有依赖的其他对象也会跟着做出相应改变，这就非常适合用观察者模式来实现。使用观察者模式可以根据需要增加或删除对象，解决一对多对象间的耦合关系，使程序更易于扩展和维护。">
+<meta property="og:updated_time" content="2015-11-24T15:30:40.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蚁人和头脑特工队">
-<meta name="twitter:description" content="国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西。">
+<meta name="twitter:title" content="Javascript设计模式理论与实战：观察者模式">
+<meta name="twitter:description" content="观察者模式主要应用于对象之间一对多的依赖关系，当一个对象发生改变时，多个对该对象有依赖的其他对象也会跟着做出相应改变，这就非常适合用观察者模式来实现。使用观察者模式可以根据需要增加或删除对象，解决一对多对象间的耦合关系，使程序更易于扩展和维护。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title> 蚁人和头脑特工队 | 狼狼的蓝胖子 </title>
+  <title> Javascript设计模式理论与实战：观察者模式 | 狼狼的蓝胖子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -177,7 +177,7 @@
           
           
             
-              蚁人和头脑特工队
+              Javascript设计模式理论与实战：观察者模式
             
           
         </h1>
@@ -186,8 +186,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-10-17T18:01:02+08:00" content="2015-10-17">
-            2015-10-17
+          <time itemprop="dateCreated" datetime="2015-11-24T23:28:07+08:00" content="2015-11-24">
+            2015-11-24
           </time>
         </span>
 
@@ -196,8 +196,8 @@
             &nbsp; | &nbsp; In
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/娱乐/" itemprop="url" rel="index">
-                  <span itemprop="name">娱乐</span>
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
                 </a>
               </span>
 
@@ -212,8 +212,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/" itemprop="commentsCount"></span>
+              <a href="/2015/11/24/design-pattern-observer/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/24/design-pattern-observer/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -223,25 +223,23 @@
 
     <div class="post-body">
       
-      <p>原文地址：<a href="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/</a></p>
+      <p>原文地址：<a href="http://luopq.com/2015/11/24/design-pattern-observer/">http://luopq.com/2015/11/24/design-pattern-observer/</a></p>
       
 
       
       
 
       
-        <span itemprop="articleBody"><p>&emsp;&emsp;国庆放假后连上了9天班，终于找到机会放松了。看了两部电影，想写点东西</p>
-<h4 id="蚁人">蚁人</h4><p>&emsp;&emsp;又一部典型的超级英雄片,落魄的主角如何逆袭成为英雄，但不同于其他英雄，他只是想成为自己女儿心中的英雄。整篇看下来幽默搞笑，又萌又酷的英雄，逗比的配角插科打诨的本事无缝穿插中，最后的结局也很温馨。  </p>
-<p>&emsp;&emsp;主角变小后的微观视角很棒，我相信很多人都会想象自己变小后的感受。在浴缸，D厅，下水道，电路板，还有最后的在iphone手机和玩具里的打斗，每个场景都很有想象力。微观视角和正常视角的切换十分自然，充满幽默感。</p>
-<p>&emsp;&emsp;除了主角本身充满喜剧效果，三个逗比同伙表现得也很棒，各有特点。不同于其他严肃的英雄导师，发明蚁人盔甲的导师也时不时冒出几句逗乐观众的台词。我喜欢这种有亮点但有不抢镜的配角安排。</p>
-<p>&emsp;&emsp;影片中的打斗戏很棒，主角忽大忽小的变换和打斗很酷而且自带萌点和趣味。他没有什么特别具有杀伤力的招数，有的只是普通人的拳头，关键在于怎么灵活运用自己变小的能力来击败对手。</p>
-<p>&emsp;&emsp;对于这类标准的美国英雄片，我最不喜欢的大概就是和主角对立的反派总是拥有和主角类似的超能力，而且能力更强大。在前面反派介绍自己黄蜂战衣的时候，大概就能猜出反派是个什么样的人物了。</p>
-<p>&emsp;&emsp;总的来说，一部让我喜欢的英雄电影，4星推荐。</p>
-<h4 id="头脑特工队">头脑特工队</h4><p>&emsp;&emsp;特别有创意特别有想象力的一部动画片，第一次发现我们的情绪，思维还可以通过这样的形式表现出来。虽然是一部动画片，但感觉这是一部更适合大人看的动画片。</p>
-<p>&emsp;&emsp;影片中很有想象力的将我们情绪展现为头脑中住的五个代表不同情绪的小家伙来掌控。由乐乐为领导，控制着整个大脑的运行，努力为小女孩创造更多的美好记忆。在乐乐和忧忧因为意外脱离控制总部，进入大脑运行的世界。脑中世界不同的岛屿代表不同的情感联系，记忆垃圾场，造梦工厂，想象出来的伙伴，记忆清理工，很形象的展示了大脑的运行。</p>
-<p>&emsp;&emsp;与其他情绪不同的是，悲伤具有感染记忆的能力，她能让曾经美好的记忆带点忧伤的成分，所以快乐总是在阻止悲伤接触任何东西，甚至画了一个圈来限制悲伤的行动自由，但没有忧伤的情绪显然是不完整的。在脑中世界和忧伤一起经历过各种冒险的领导快乐也知道应该让忧伤去做她适合的工作，让重塑的情感岛屿更具坚固性。</p>
-<p>&emsp;&emsp;影片中也展示了爸爸和妈妈脑袋里的五个家伙。爸爸脑袋里领导情绪是愤怒，妈妈里的领导情绪是忧伤，而小女孩的领导情绪是快乐。什么样的情绪主导，整个人表现出来的状态就是怎么样的。随着成长和精力，我们的情绪领导也许会从最初的快乐在进行转变，我们肯定悲伤的价值，但我们应该让快乐成为主导。</p>
-<p>&emsp;&emsp;我脑海的的情绪小家伙，又是怎么样的组成呢？</p>
+        <span itemprop="articleBody"><p>观察者模式主要应用于对象之间一对多的依赖关系，当一个对象发生改变时，多个对该对象有依赖的其他对象也会跟着做出相应改变，这就非常适合用观察者模式来实现。使用观察者模式可以根据需要增加或删除对象，解决一对多对象间的耦合关系，使程序更易于扩展和维护。</p>
+<h3 id="基础知识">基础知识</h3><p>观察者模式定义了对象间的一种一对多依赖关系，每当一个对象发生改变时，其相关依赖对象皆得到通知并被进行相应的改变。观察者模式又叫做发布-订阅模式。生活中有很多类似的关系，比如微信公众号订阅，多个读者订阅一个微信公众号，一旦公众号有更新，多个读者都会收到更新，而这种情况在应用程序中也非常常见，js绑定各种事件本质上就是观察者模式的实现。<br>观察者模式是一个非常有用的设计模式，它主要有两个角色组成：<br>（1）目标对象：作为一对多关系中的一，可以用来管理观察者的增加和删除<br>（2）观察者对象：观察目标对象，一旦目标发生改变则做出相应的反应</p>
+<h3 id="观察者模式的实现">观察者模式的实现</h3><h4 id="基本示例">基本示例</h4><p>在Web开发中，我们经常遇到这种情况，ajax请求数据后，要同时更新数据到页面的不同部分中，这种情况我们可以最直接的在ajax的回调中更新页面，但是如果要更新的位置很多，我们就要去修改回调函数，这样代码的维护性和扩张性不高，这种情况下，我们就可以用观察者模式来实现。<br>首先，需要一个最基本的目标对象，我们定义如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Subject</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.observers = [];</span><br><span class="line">&#125;</span><br><span class="line">Subject.prototype = &#123;</span><br><span class="line">    constructor: Subject,</span><br><span class="line">    subscribe: <span class="function"><span class="keyword">function</span> <span class="params">(fn)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.observers.push(fn);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    unsubscribe: <span class="function"><span class="keyword">function</span> <span class="params">(fn)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.observers = <span class="keyword">this</span>.observers.filter(<span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (item !== fn) &#123;</span><br><span class="line">                <span class="keyword">return</span> item;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    fire: <span class="function"><span class="keyword">function</span> <span class="params">(data, context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.observers.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(item)</span> </span>&#123;</span><br><span class="line">            item.call(context, data);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>目标对象Subject中有一个数组，这个数组保存观察者列表，而目标对象提供三个方法：观察对象，取消观察对象，触发对象更新。<br>我们通过subscribe方法增加观察者，保存到observers数组中，如果有需要可以通过unsubscribe方法取消订阅，然后更新数据时调用fire方法触发，从而通知各个观察者进行相应处理。<br>假设我们页面有一个主视图和一个侧视图，两个视图都要进行相应的修改，我们可以定义两个对象如下：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SideView</span><span class="params">()</span> &#123;</span> &#125;</span><br><span class="line">SideView.prototype.<span class="built_in">render</span> = <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"Side data:"</span> + data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MainView</span><span class="params">()</span> &#123;</span> &#125;</span><br><span class="line">MainView.prototype.<span class="built_in">render</span> = <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"MainView data:"</span> + data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码定义了两个对象，分别为侧视图和主视图，两个对象都有相应的渲染页面的方法render，然后我们将两个方法添加到观察者列表中。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> subject = <span class="keyword">new</span> Subject();</span><br><span class="line"><span class="keyword">var</span> sideView = <span class="keyword">new</span> SideView();</span><br><span class="line"><span class="keyword">var</span> mainView = <span class="keyword">new</span> MainView();</span><br><span class="line"></span><br><span class="line">subject.subscribe(sideView.render)</span><br><span class="line">subject.subscribe(mainView.render);</span><br><span class="line">subject.fire(<span class="string">"test"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>通过调用fire方法，传入“test”，从而触发两个render函数。从这段代码中，我们可以很轻松地通过subscribe来添加观察者对象，而不必每次都去修改fire方法。</p>
+<h4 id="jQuery中的观察者模式">jQuery中的观察者模式</h4><p>jQuery中实现观察者模式非常方便，简短的几句代码就可以实现<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">function</span> <span class="list">($)</span> <span class="collection">&#123;</span><br><span class="line">            var obj = $<span class="list">(<span class="collection">&#123;&#125;</span>)</span><span class="comment">;</span></span><br><span class="line">            $.subscribe = function <span class="list">()</span> <span class="collection">&#123;</span><br><span class="line">                obj.on.apply<span class="list">(<span class="keyword">obj</span>, arguments)</span><span class="comment">;</span></span><br><span class="line">            &#125;</span></span><br><span class="line">            $.unsubscribe = function <span class="list">()</span> <span class="collection">&#123;</span><br><span class="line">                obj.off.apply<span class="list">(<span class="keyword">obj</span>, arguments)</span><span class="comment">;</span></span><br><span class="line">            &#125;</span></span><br><span class="line">            $.fire = function <span class="list">()</span> <span class="collection">&#123;</span><br><span class="line">                obj.trigger.apply<span class="list">(<span class="keyword">obj</span>, arguments)</span><span class="comment">;</span></span><br><span class="line">            &#125;</span></span><br><span class="line">        &#125;</span>)</span><span class="list">(<span class="keyword">jQuery</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>在jQuery中，通过on方法来绑定事件，off来移除事件，trigger来触发事件，本质上就是一种观察者模式。上面代码中，我们通过一个obj对象来保存观察者对象，我们只要像平时绑定事件一样使用就可以，如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.subscribe(<span class="string">"render"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"test"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">$.subscribe(<span class="string">"render"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"test2"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">$.fire(<span class="string">"render"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这段代码分别输出test和test2.我们绑定了两个处理函数到render上，然后通过fire触发render事件，这就实现了观察者模式一对多依赖的特点。</p>
+<h3 id="总结">总结</h3><p>观察者模式是一种很常用的设计模式，因为我们的应用程序中涉及到依赖关系的非常多。常见的比如消息通知，向用户发送一个消息需要同时通知到站内信，邮件，短信等多种消息，这种一对多的情况非常适合使用观察者模式来实现。使用观察者模式的关键是在于理清目标对象和观察者对象，目标对象通过一个数组对观察者对象进行管理，更新数据的时候再循环调用观察者对象，从而实现观察者模式。</p>
 </span>
       
 
@@ -252,7 +250,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/电影/" rel="tag">#电影</a>
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -261,13 +261,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/26/CSS-Box-Model/" rel="prev">详解CSS盒模型</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/learn-markdown/" rel="next">Markdown基本语法</a>
+              <a href="/2015/11/20/design-pattern-flyweight/" rel="next">Javascript设计模式理论与实战：享元模式</a>
             
           </div>
         </div>
@@ -319,8 +317,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/"
-                   data-title="蚁人和头脑特工队" data-url="http://luopq.com/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/">
+              <div class="ds-thread" data-thread-key="2015/11/24/design-pattern-observer/"
+                   data-title="Javascript设计模式理论与实战：观察者模式" data-url="http://luopq.com/2015/11/24/design-pattern-observer/">
               </div>
             
           </div>
@@ -433,7 +431,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#蚁人"><span class="nav-number">1.</span> <span class="nav-text">蚁人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#头脑特工队"><span class="nav-number">2.</span> <span class="nav-text">头脑特工队</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式的实现"><span class="nav-number">2.</span> <span class="nav-text">观察者模式的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本示例"><span class="nav-number">2.1.</span> <span class="nav-text">基本示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery中的观察者模式"><span class="nav-number">2.2.</span> <span class="nav-text">jQuery中的观察者模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
