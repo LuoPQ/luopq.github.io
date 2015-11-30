@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="markdown," />
+  <meta name="keywords" content="Javascript,设计模式," />
 
 
 
@@ -41,17 +41,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Markdown的基本语法，只要掌握几个概念就能畅快写字啦">
+<meta name="description" content="在软件开发中，很大部分时候就是操作数据，而不同数据下展示的结果我们将其抽象出来称为状态，我们平时开发时本质上就是对应用程序的各种状态进行切换并作出相应处理。状态模式就是一种适合多种状态场景下的设计模式。使用状态模式可以可以让代码更加清晰，提高应用程序的维护性和扩展性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown基本语法">
-<meta property="og:url" content="http://luopq.com/2015/10/15/learn-markdown/index.html">
+<meta property="og:title" content="Javascript设计模式理论与实战：状态模式">
+<meta property="og:url" content="http://luopq.com/2015/11/25/design-pattern-state/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
-<meta property="og:description" content="Markdown的基本语法，只要掌握几个概念就能畅快写字啦">
-<meta property="og:image" content="http://tp4.sinaimg.cn/1836010911/180/5614933698/1">
-<meta property="og:updated_time" content="2015-10-26T13:16:21.672Z">
+<meta property="og:description" content="在软件开发中，很大部分时候就是操作数据，而不同数据下展示的结果我们将其抽象出来称为状态，我们平时开发时本质上就是对应用程序的各种状态进行切换并作出相应处理。状态模式就是一种适合多种状态场景下的设计模式。使用状态模式可以可以让代码更加清晰，提高应用程序的维护性和扩展性。">
+<meta property="og:updated_time" content="2015-11-30T15:46:27.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown基本语法">
-<meta name="twitter:description" content="Markdown的基本语法，只要掌握几个概念就能畅快写字啦">
+<meta name="twitter:title" content="Javascript设计模式理论与实战：状态模式">
+<meta name="twitter:description" content="在软件开发中，很大部分时候就是操作数据，而不同数据下展示的结果我们将其抽象出来称为状态，我们平时开发时本质上就是对应用程序的各种状态进行切换并作出相应处理。状态模式就是一种适合多种状态场景下的设计模式。使用状态模式可以可以让代码更加清晰，提高应用程序的维护性和扩展性。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +60,7 @@
   };
 </script>
 
-  <title> Markdown基本语法 | 狼狼的蓝胖子 </title>
+  <title> Javascript设计模式理论与实战：状态模式 | 狼狼的蓝胖子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -178,7 +177,7 @@
           
           
             
-              Markdown基本语法
+              Javascript设计模式理论与实战：状态模式
             
           
         </h1>
@@ -187,19 +186,34 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-10-15T20:10:33+08:00" content="2015-10-15">
-            2015-10-15
+          <time itemprop="dateCreated" datetime="2015-11-25T14:59:34+08:00" content="2015-11-25">
+            2015-11-25
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Web前端/" itemprop="url" rel="index">
+                  <span itemprop="name">Web前端</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/15/learn-markdown/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/learn-markdown/" itemprop="commentsCount"></span>
+              <a href="/2015/11/25/design-pattern-state/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/25/design-pattern-state/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -209,66 +223,24 @@
 
     <div class="post-body">
       
-      <p>原文地址：<a href="http://luopq.com/2015/10/15/learn-markdown/">http://luopq.com/2015/10/15/learn-markdown/</a></p>
+      <p>原文地址：<a href="http://luopq.com/2015/11/25/design-pattern-state/">http://luopq.com/2015/11/25/design-pattern-state/</a></p>
       
 
       
       
 
       
-        <span itemprop="articleBody"><h3 id="基本语法">基本语法</h3><h4 id="标题">标题</h4><p>一级标题： # 一级标题<br>二级标题： ## 二级标题<br>三级标题： ### 三级标题<br>四级标题： #### 四级标题<br>五级标题： ##### 五级标题<br>六级标题： ###### 六级标题</p>
-<h4 id="列表">列表</h4><p>无序列表 ：在文字前加上“-”或“*”  </p>
-<ul>
-<li>1  </li>
-<li>2  </li>
-<li>3</li>
-</ul>
-<p>有序列表：直接加上1. 2.  </p>
-<ol>
-<li>第一项  </li>
-<li>第二项  </li>
-<li>第三项  </li>
-</ol>
-<h4 id="引用">引用</h4><p>在文本前面加上 &gt; （大于号）</p>
-<blockquote>
-<p>这是一段引用文字</p>
-</blockquote>
-<h4 id="图片和链接">图片和链接</h4><p>图片和链接的区别在于 ! 感叹号</p>
-<p>图片：<code>![图片替代文字](图片链接)</code><br>插入图片：<br><img src="http://tp4.sinaimg.cn/1836010911/180/5614933698/1" alt="我的头像"></p>
-<p>链接：<code>[链接名称](链接地址)</code><br>插入链接：<a href="luopq.com">我的博客</a></p>
-<h4 id="粗体和斜体">粗体和斜体</h4><p>用两个”*“包含就是粗体：<code>**粗体**</code><br><strong>这里是粗体</strong>  </p>
-<p>用一个”*“包含就是斜体：<code>*斜体*</code><br><em>这里是斜体</em></p>
-<h4 id="表格">表格</h4><pre><code>|<span class="string"> 第一列 </span>|<span class="string"> 第二列 </span>|<span class="string"> 第三列 </span>|
-|<span class="string">-------</span>|<span class="string">-------</span>|<span class="string">-------</span>|
-|<span class="string">   1   </span>|<span class="string">   2   </span>|<span class="string">   3   </span>|
-</code></pre><table>
-<thead>
-<tr>
-<th>第一列</th>
-<th>第二列</th>
-<th>第三列</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-<h4 id="代码框">代码框</h4><p>三种方式:  </p>
-<ol>
-<li>行内代码：使用符号”`“包裹起来，在ESC键下面<br> <code>var a = 0</code>  </li>
-<li><p>块代码：使用tab键缩进或空格缩进四个    </p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{
-    <span class="built_in">console</span>.log(<span class="string">"test"</span>);
-}   
-</code></pre></li>
-<li><p>前后使用三个”`“将代码包裹起来  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"test"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        <span itemprop="articleBody"><p>在软件开发中，很大部分时候就是操作数据，而不同数据下展示的结果我们将其抽象出来称为状态，我们平时开发时本质上就是对应用程序的各种状态进行切换并作出相应处理。状态模式就是一种适合多种状态场景下的设计模式。使用状态模式可以可以让代码更加清晰，提高应用程序的维护性和扩展性。</p>
+<h3 id="基础知识">基础知识</h3><p>状态模式定义一个对象，这个对象可以通过管理其状态从而使得应用程序作出相应的变化。状态模式是一个非常常用的设计模式，它主要有两个角色组成：<br>（1）环境类：拥有一个状态成员，可以修改其状态并作出相应反应。<br>（2）状态类：表示一种状态，包含其相应的处理方法</p>
+<h3 id="状态模式的实现">状态模式的实现</h3><h4 id="基本示例">基本示例</h4><p>我们简单地通过一个红绿灯的例子来说明状态模式，红绿灯拥有一个状态：哪一种颜色的灯亮了，每一种颜色的灯亮了之后又各自的动作，一共有红绿黄三种颜色的灯，也就是有三种状态。<br>首先，需要一个最基本的红绿灯对象，我们定义如下：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> trafficLight = (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> currentLight = <span class="literal">null</span>;</span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">         change: <span class="function"><span class="keyword">function</span> <span class="params">(light)</span> </span>&#123;</span><br><span class="line">             currentLight = light;</span><br><span class="line">             currentLight.go();</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码中，trafficLight是一个红绿灯对象，它有一个局部变量currentLight表示当前亮灯的对象，同时返回一个方法，这个方法用来改变红绿灯的状态，并触发相应的处理程序。<br>接着我们定义三种不同颜色的灯，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">RedLight</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">RedLight.prototype.go = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this is red light"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">GreenLight</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">GreenLight.prototype.go = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this is green light"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">YellowLight</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line">YellowLight.prototype.go = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this is yellow light"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码分别定义了红绿黄三种颜色的灯对象，每一个对象都包含一个go方法作为亮灯之后的处理程序。<br>接着，我们在客户端进行切换不同颜色的灯：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">trafficLight.<span class="keyword">change</span>(<span class="keyword">new</span> RedLight());</span><br><span class="line">trafficLight.<span class="keyword">change</span>(<span class="keyword">new</span> YellowLight());</span><br></pre></td></tr></table></figure></p>
+<p>通过传入灯对象到change方法中，从而改变红绿灯的状态，触发其相应的处理程序，这就是一个典型的状态模式的应用。</p>
+<h4 id="JS组件开发中的状态模式">JS组件开发中的状态模式</h4><p>状态模式在开发JS组件时非常有用，我们平时开发组件时很多时候要切换组件的状态，每种状态有不同的处理方式，这个时候就可以使用状态模式进行开发<br>比如我们要开发一个菜单组件，菜单拥有最基本的两种状态：显示和隐藏，相应的显示或隐藏可能会有各自的其他操作。使用状态模式的话，我们首先定义一个环境类，在这里也就是菜单对象，简单地定义如下：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Menu() &#123; &#125;</span><br><span class="line">Menu.prototype.toggle = function (<span class="keyword">state</span>) &#123;</span><br><span class="line">    <span class="keyword">state</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个菜单类有一个toggle方法用来切换状态，然后调用相应的处理方法。<br>接着我们定义两种状态，定义如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> menuStates = &#123;</span><br><span class="line">    <span class="string">"show"</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"the menu is showing"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"hide"</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"the menu is hiding"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>在这里，通过一个对象menuStates来定义menu的状态，这里有两种状态show和hide，然后拥有相应的处理方法。在使用的时候通过下面的方法进行调用：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">menu</span> = new Menu();</span><br><span class="line"><span class="keyword">menu</span>.<span class="keyword">toggle</span>(menuStates.show);</span><br><span class="line"><span class="keyword">menu</span>.<span class="keyword">toggle</span>(menuStates.<span class="keyword">hide</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这段代码实例化了一个Menu对象，然后分别切换了显示和隐藏两种状态，如果有第三种状态，我们只需要menuStates添加相应的状态和处理程序即可。</p>
+<h3 id="总结">总结</h3><p>状态模式在开发Web组件时非常有用，能让我们的代码结构更加清晰，能够很方便的增加组件的各种状态。使用状态模式的关键是要理清组件的各种状态，搞清楚组件的不同状态和相应的处理函数，对组件后期的维护和扩展有极大的好处。</p>
 </span>
       
 
@@ -279,7 +251,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag">#markdown</a>
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
           
         </div>
       
@@ -288,11 +262,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/17/movie-reviews-for-Ant-Man-and-Inside-Out/" rel="prev">蚁人和头脑特工队</a>
+              <a href="/2015/11/30/javascript-dom/" rel="prev">Javascript操作DOM常用API总结</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/24/design-pattern-observer/" rel="next">Javascript设计模式理论与实战：观察者模式</a>
             
           </div>
         </div>
@@ -344,8 +320,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/15/learn-markdown/"
-                   data-title="Markdown基本语法" data-url="http://luopq.com/2015/10/15/learn-markdown/">
+              <div class="ds-thread" data-thread-key="2015/11/25/design-pattern-state/"
+                   data-title="Javascript设计模式理论与实战：状态模式" data-url="http://luopq.com/2015/11/25/design-pattern-state/">
               </div>
             
           </div>
@@ -458,7 +434,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标题"><span class="nav-number">1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">1.2.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-number">1.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片和链接"><span class="nav-number">1.4.</span> <span class="nav-text">图片和链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#粗体和斜体"><span class="nav-number">1.5.</span> <span class="nav-text">粗体和斜体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格"><span class="nav-number">1.6.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码框"><span class="nav-number">1.7.</span> <span class="nav-text">代码框</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态模式的实现"><span class="nav-number">2.</span> <span class="nav-text">状态模式的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本示例"><span class="nav-number">2.1.</span> <span class="nav-text">基本示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS组件开发中的状态模式"><span class="nav-number">2.2.</span> <span class="nav-text">JS组件开发中的状态模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
