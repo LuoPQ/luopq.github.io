@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我只是想写点字]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://luopq.com/"/>
-  <updated>2015-11-30T15:52:12.458Z</updated>
+  <updated>2015-12-01T13:47:15.056Z</updated>
   <id>http://luopq.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://luopq.com/2015/11/30/javascript-dom/"/>
     <id>http://luopq.com/2015/11/30/javascript-dom/</id>
     <published>2015-11-30T15:46:59.000Z</published>
-    <updated>2015-11-30T15:52:12.458Z</updated>
+    <updated>2015-12-01T13:47:15.056Z</updated>
     <content type="html"><![CDATA[<p>文本整理了javascript操作DOM的一些常用的api，根据其作用整理成为创建，修改，查询等多种类型的api，主要用于复习基础知识，加深对原生js的认识。</p>
 <h3 id="基本概念">基本概念</h3><p>在讲解操作DOM的api之前，首先我们来复习一下一些基本概念，这些概念是掌握api的关键，必须理解它们。</p>
 <h4 id="Node类型">Node类型</h4><p>DOM1级定义了一个Node接口，该接口由DOM中所有节点类型实现。这个Node接口在JS中是作为Node类型实现的。在IE9以下版本无法访问到这个类型，JS中所有节点都继承自Node类型，都共享着相同的基本属性和方法。<br>Node有一个属性nodeType表示Node的类型，它是一个整数，其数值分别表示相应的Node类型，具体如下：<br>Node.ELEMENT_NODE:1<br>Node.ATTRIBUTE_NODE:2<br>Node.TEXT_NODE:3<br>Node.CDATA_SECTION_NODE:4<br>Node.ENTITY_REFERENCE_NODE:5<br>Node.ENTITY_NODE:6<br>Node.PROCESSING_INSTRUCTION_NODE:7<br>Node.COMMENT_NODE:8<br>Node.DOCUMENT_NODE:9<br>Node.DOCUMENT_TYPE_NODE:10<br>Node.DOCUMENT_FRAGMENT_NODE:11<br>Node.NOTATION_NODE:12<br>假设我们要判断一个Node是不是元素，我们可以这样判断<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(someNode.nodeType == <span class="number">1</span>)&#123;</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">"Node is a element"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -56,7 +56,7 @@
 <h4 id="removeChild">removeChild</h4><p>removeChild顾名思义，就是删除指定的子节点并返回，用法如下：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> deletedChild</span> = parent.removeChild(node);</span><br></pre></td></tr></table></figure></p>
 <p>deletedChild指向被删除节点的引用，它等于node，被删除的节点仍然存在于内存中，可以对其进行下一步操作。<br>注意：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：<br><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="component">if(node.parentNode)&#123;</span><br><span class="line">    node<span class="string">.parentNode.removeChild(node)</span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>通过节点自己获取节点的父节点，然后将自身删除。</p>
-<h4 id="replaceChild">replaceChild</h4><p>replaceChild用于使用一个节点替换另一个节点，用法如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">parent</span><span class="class">.replaceNode</span>(<span class="tag">newChild</span>,<span class="tag">oldChild</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="replaceChild">replaceChild</h4><p>replaceChild用于使用一个节点替换另一个节点，用法如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">parent</span><span class="class">.replaceChild</span>(<span class="tag">newChild</span>,<span class="tag">oldChild</span>);</span><br></pre></td></tr></table></figure></p>
 <p>newChild是替换的节点，可以是新的节点，也可以是页面上的节点，如果是页面上的节点，则其将被转移到新的位置<br>oldChild是被替换的节点</p>
 <h4 id="页面修改型API总结">页面修改型API总结</h4><p>页面修改型api主要是这四个接口，要注意几个特点：<br>（1）不管是新增还是替换节点，如果新增或替换的节点是原本存在页面上的，则其原来位置的节点将被移除，也就是说同一个节点不能存在于页面的多个位置<br>（2）节点本身绑定的事件会不会消失，会一直保留着。</p>
 <h3 id="节点查询型API">节点查询型API</h3><p>节点查询型API也是非常常用的api，下面我们分别说明一下每一个api的使用。</p>

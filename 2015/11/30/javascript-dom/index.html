@@ -47,7 +47,7 @@
 <meta property="og:url" content="http://luopq.com/2015/11/30/javascript-dom/index.html">
 <meta property="og:site_name" content="狼狼的蓝胖子">
 <meta property="og:description" content="文本整理了javascript操作DOM的一些常用的api，根据其作用整理成为创建，修改，查询等多种类型的api，主要用于复习基础知识，加深对原生js的认识。">
-<meta property="og:updated_time" content="2015-11-30T15:52:12.458Z">
+<meta property="og:updated_time" content="2015-12-01T13:47:15.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript操作DOM常用API总结">
 <meta name="twitter:description" content="文本整理了javascript操作DOM的一些常用的api，根据其作用整理成为创建，修改，查询等多种类型的api，主要用于复习基础知识，加深对原生js的认识。">
@@ -266,7 +266,7 @@
 <h4 id="removeChild">removeChild</h4><p>removeChild顾名思义，就是删除指定的子节点并返回，用法如下：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> deletedChild</span> = parent.removeChild(node);</span><br></pre></td></tr></table></figure></p>
 <p>deletedChild指向被删除节点的引用，它等于node，被删除的节点仍然存在于内存中，可以对其进行下一步操作。<br>注意：如果被删除的节点不是其子节点，则程序将会报错。我们可以通过下面的方式来确保可以删除：<br><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="component">if(node.parentNode)&#123;</span><br><span class="line">    node<span class="string">.parentNode.removeChild(node)</span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>通过节点自己获取节点的父节点，然后将自身删除。</p>
-<h4 id="replaceChild">replaceChild</h4><p>replaceChild用于使用一个节点替换另一个节点，用法如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">parent</span><span class="class">.replaceNode</span>(<span class="tag">newChild</span>,<span class="tag">oldChild</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="replaceChild">replaceChild</h4><p>replaceChild用于使用一个节点替换另一个节点，用法如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">parent</span><span class="class">.replaceChild</span>(<span class="tag">newChild</span>,<span class="tag">oldChild</span>);</span><br></pre></td></tr></table></figure></p>
 <p>newChild是替换的节点，可以是新的节点，也可以是页面上的节点，如果是页面上的节点，则其将被转移到新的位置<br>oldChild是被替换的节点</p>
 <h4 id="页面修改型API总结">页面修改型API总结</h4><p>页面修改型api主要是这四个接口，要注意几个特点：<br>（1）不管是新增还是替换节点，如果新增或替换的节点是原本存在页面上的，则其原来位置的节点将被移除，也就是说同一个节点不能存在于页面的多个位置<br>（2）节点本身绑定的事件会不会消失，会一直保留着。</p>
 <h3 id="节点查询型API">节点查询型API</h3><p>节点查询型API也是非常常用的api，下面我们分别说明一下每一个api的使用。</p>
