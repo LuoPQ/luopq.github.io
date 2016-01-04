@@ -69,7 +69,7 @@
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo19.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo20.jpg">
 <meta property="og:image" content="http://7xnjy3.com1.z0.glb.clouddn.com/CSS-float-Demo21.jpg">
-<meta property="og:updated_time" content="2015-11-11T11:11:28.231Z">
+<meta property="og:updated_time" content="2015-12-09T10:59:29.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解CSS float属性">
 <meta name="twitter:description" content="CSS中的float属性是一个频繁用到的属性，对于初学者来说，如果没有理解好浮动的意义和表现出来的特性，在使用的使用很容易陷入困惑，云里雾里，搞不清楚状态。本文将从最基本的知识开始说起，谈谈关于浮动的应用，出现的问题和解决方案。">
@@ -311,7 +311,7 @@
 <h3 id="清除浮动">清除浮动</h3><p>清除浮动是一个经常提到的东西，首先我们要理解使用浮动会带来什么问题，以及为什么要清除浮动。<br>我们知道，一个块级元素如果没有设置height，其height是由子元素撑开的。对子元素使用了浮动之后，子元素会脱离标准文档流，也就是说，父级元素中没有内容可以撑开其高度，这样父级元素的height就会被忽略，这就是所谓的高度塌陷。要解决这样的问题，我们就是要使用清除浮动。<br>清除浮动有很多方法，下面我们一一说明每一种方法。</p>
 <p>对于IE浏览器来说，要清除浮动带来的问题，只需要触发器hasLayout就可以，直接设置样式zoom:1就可以触发。关于hasLayout的知识，这里暂不详述，以后我们专门来讲讲这个东西，感兴趣的同学可以先查查相关资料。</p>
 <p>对于非IE浏览器，主要有下面几种方法：</p>
-<h4 id="增加额外的div">增加额外的div</h4><p>这是最简单直接的方法，哪里有浮动元素，就在其父级元素后增加一个<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> style=<span class="string">"clear:both"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="增加额外的div">增加额外的div</h4><p>这是最简单直接的方法，哪里有浮动元素，就在其父级元素的内容中增加一个（作为最后一个子元素）<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> style=<span class="string">"clear:both"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p>这样就会清除浮动元素带来的问题。<br>优点：简单直接，初学者常常使用的方法，也易于理解<br>缺点：增加额外的无意义标签，不利于语义化，每次清除都要添加额外的空标签，造成浪费</p>
 <h4 id="父级元素添加overflow:hidden">父级元素添加overflow:hidden</h4><p>这个方法的关键在于触发了BFC，BFC是CSS中的难点之一，我们以后专门来学习这个概念。现在只需要知道它可以清除浮动带来的影响。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.clearfix</span><span class="rules">&#123;<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;<span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span>&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
 <p>优点：代码量少，没有额外的标签<br>缺点：如果子元素超出父元素的范围，会造成超出的部分被隐藏</p>
@@ -448,7 +448,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -538,7 +538,7 @@
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>
