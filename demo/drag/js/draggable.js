@@ -129,7 +129,7 @@
     /*
      * 拖拽元素
      * @constructor
-     * @/// <param name="node" type="HTMLElement">被拖拽的元素
+     * @/// <param name="node" type="HTMLElement">被拖拽的元素</param>
      */
     function DragTarget(node, opt) {
         this.target = node;
