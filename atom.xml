@@ -4,7 +4,7 @@
   <subtitle><![CDATA[我只是想写点字]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://luopq.com/"/>
-  <updated>2016-01-04T16:19:39.000Z</updated>
+  <updated>2016-01-17T09:22:35.225Z</updated>
   <id>http://luopq.com/</id>
   
   <author>
@@ -13,6 +13,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo技巧收集 - 不定期更新]]></title>
+    <link href="http://luopq.com/2016/01/17/hexo-tips/"/>
+    <id>http://luopq.com/2016/01/17/hexo-tips/</id>
+    <published>2016-01-17T09:08:34.000Z</published>
+    <updated>2016-01-17T09:22:35.225Z</updated>
+    <content type="html"><![CDATA[<h3 id="不处理source目录的个别文件">不处理source目录的个别文件</h3><p>有时候我们要写一些Demo一起放到博客上去，默认情况下，Hexo也会将这部分Demo进行处理，导致这些Demo页面渲染上了博客主题，如何不处理这些Demo页面呢? </p>
+<p>假设你的Source文件夹里面有个Demo目录，要忽略Demo目录下的所有html页面，可以通过在_config.yml设置skip_render来忽略的目录，具体如下：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">skip_render</span>: <span class="string">Demo/*.html</span></span><br></pre></td></tr></table></figure></p>
+<p>文件匹配是基于正则匹配的，更复杂的情况如下</p>
+<p>1.单个文件夹下全部文件：skip_render: demo/*</p>
+<p>2.单个文件夹下指定类型文件：skip_render: demo/*.html </p>
+<p>3.单个文件夹下全部文件以及子目录:skip_render: demo/** </p>
+<p>4.多个文件夹以及各种复杂情况：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">    -<span class="ruby"> <span class="string">'demo/*.html'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'demo/**'</span></span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[一些平时Hexo技巧的收集，不定期更新]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://luopq.com/tags/Hexo/"/>
+    
+      <category term="Tips" scheme="http://luopq.com/tags/Tips/"/>
+    
+      <category term="Hexo" scheme="http://luopq.com/categories/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[CSS代码重构与优化之路]]></title>
