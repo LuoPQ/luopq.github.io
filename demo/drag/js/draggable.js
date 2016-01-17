@@ -1,4 +1,4 @@
-﻿; (function (window, document, undefined) {
+; (function (window, document, undefined) {
     //#region dom方法
     var dom = {
         on: function (node, eventName, handler) {
@@ -129,7 +129,7 @@
     /*
      * 拖拽元素
      * @constructor
-     * @/// <param name="node" type="HTMLElement">被拖拽的元素</param>
+     * @/// <param name="node" type="HTMLElement">被拖拽的元素
      */
     function DragTarget(node, opt) {
         this.target = node;
