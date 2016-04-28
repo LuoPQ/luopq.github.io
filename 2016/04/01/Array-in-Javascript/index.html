@@ -1,0 +1,819 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="Javascript," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="狼狼的蓝胖子" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="本文详细总结了Javascript中Array对象，首先从基本概念开始说起，然后一一介绍了一些常用的数组方法，将其整理归类，最后解答了一些常见的面试题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详解Javascript中的Array对象">
+<meta property="og:url" content="http://luopq.com/2016/04/01/Array-in-Javascript/index.html">
+<meta property="og:site_name" content="狼狼的蓝胖子">
+<meta property="og:description" content="本文详细总结了Javascript中Array对象，首先从基本概念开始说起，然后一一介绍了一些常用的数组方法，将其整理归类，最后解答了一些常见的面试题。">
+<meta property="og:updated_time" content="2016-04-27T06:15:28.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详解Javascript中的Array对象">
+<meta name="twitter:description" content="本文详细总结了Javascript中Array对象，首先从基本概念开始说起，然后一一介绍了一些常用的数组方法，将其整理归类，最后解答了一些常见的面试题。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 详解Javascript中的Array对象 | 狼狼的蓝胖子 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?71a8326527b5fd808db4be0cc7746136";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">狼狼的蓝胖子</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+<span class="sub-title">我只是想写点字</span>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works" rel="section">
+            <i class="menu-item-icon icon-next-works"></i> <br />
+            Works
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              详解Javascript中的Array对象
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2016-04-01T18:11:22+08:00" content="2016-04-01">
+            2016-04-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Javascript/" itemprop="url" rel="index">
+                  <span itemprop="name">Javascript</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/04/01/Array-in-Javascript/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/01/Array-in-Javascript/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+      
+        
+        <p>本文地址：<a href="http://luopq.com/2016/04/01/Array-in-Javascript/">http://luopq.com/2016/04/01/Array-in-Javascript/</a>，转载请注明</p>
+        
+      
+      
+      
+
+      
+        <span itemprop="articleBody"><p>在上一篇<a href="http://luopq.com/2016/02/28/Object-in-Javascript/" target="_blank">文章</a>中，我们详细介绍了Object对象。在这一篇文章中，我们来说说Array对象。Array对象可以说是除Object对象之外用得最频繁的一个对象了。下面我们来详细说说Array这个对象。</p>
+<h3 id="基础介绍">基础介绍</h3><h4 id="创建数组">创建数组</h4><p>和Object对象一样，创建Array也有2种方式：构造函数、字面量法。</p>
+<h5 id="构造函数创建">构造函数创建</h5><p>使用构造函数的方式可以通过new关键字来声明，如下所示：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[]</span></span><br></pre></td></tr></table></figure></p>
+<p>当然也可以不通过new关键字来声明：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="built_in">Array</span>();</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//[]</span></span><br></pre></td></tr></table></figure></p>
+<p>如果知道数组元素的个数，也可以直接传入数字表示元素个数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr2.length);  <span class="comment">//5</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以直接传入数组元素：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>, <span class="string">"aa"</span>, <span class="string">"bb"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr3);  <span class="comment">//[5, "aa", "bb"]</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="字面量法创建">字面量法创建</h5><p>通过字面量创建数组非常简单，推荐这种方式去创建数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[]</span></span><br></pre></td></tr></table></figure></p>
+<p>如果数组有一些初始值，可以直接写上去：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="atom">var</span> <span class="atom">arr2</span> = [<span class="number">5</span>, <span class="string">"aa"</span>, <span class="string">"bb"</span>];</span><br><span class="line"><span class="atom">console</span>.<span class="atom">log</span>(<span class="atom">arr2</span>);  //[<span class="number">5</span>, <span class="string">"aa"</span>, <span class="string">"bb"</span>]</span><br></pre></td></tr></table></figure></p>
+<h4 id="数组长度">数组长度</h4><p>我们都知道要访问数组元素的个数很简单，直接通过length属性来获取到。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.length);  <span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>但是和其他语言不同的是，在JS中，length属性是可以被设置的。<br>假设我们要清空一个数组，我们可以直接将length设置成0：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.length = <span class="number">0</span>;</span><br><span class="line">console.<span class="built_in">log</span>(arr); <span class="comment">//[]</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，arr数组的元素被清空的</p>
+<p>如果我们设置成负数会怎么样呢：<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.length = -1;//Uncaught RangeError: Invalid<span class="instruction"> array </span>length</span><br><span class="line">console.log(arr<span class="function">)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>很明显，length是不允许被设置成负数的。</p>
+<p>通过设置length属性，我们可以删除元素，比如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr);<span class="comment">//[2, 3, 4, 5]</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">console.<span class="built_in">log</span>(arr);[<span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p>将length属性设置成比原来小的数值，后面的元素就会被移除掉。</p>
+<p>如果将length设置成比原来大的数值会怎么样呢？<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr.length = <span class="number">5</span>;</span><br><span class="line">console.<span class="built_in">log</span>(arr);<span class="comment">//[2, 3, 4, 5]</span></span><br><span class="line">console.<span class="built_in">log</span>(arr[<span class="number">4</span>]);<span class="comment">//undefined</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.length);<span class="comment">//5</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，设置成比较大的数值后，多出来的元素值是undefined</p>
+<h4 id="数组检测">数组检测</h4><p>简单地介绍了Array之后，我们来说说如果检测一个变量是否是一个Array对象。这个也是一个比较常见的话题。<br>在ES5中，Array新增了一个检测数组对象的方法：Array.isArray。这个方法可以完美地确认一个对象是不是数组，无论这个对象是在哪个全局执行环境中创建的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">console.<span class="built_in">log</span>(Array.isArray(arr));  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>对于不支持该方法的浏览器中，我们可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.isArray = <span class="function"><span class="keyword">function</span> (<span class="params">Obj</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.apply(Obj) === <span class="string">"[object Array]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="一些常用的数组对象方法">一些常用的数组对象方法</h3><p>Array对象中包含着很多有用的方法，尤其是在ES5，ES6中新增了许多方法，下面我们来总结一下。</p>
+<h4 id="静态方法">静态方法</h4><h5 id="Array-from">Array.from</h5><p>Array.from是ES6种新增的方法，它可以将类数组对象或可迭代对象转换成数组对象。<br>常见的类数组对象比如有函数的arguments值，或者NodeList，HTMLCollection对象等等。<br>常见的可迭代对象比如字符串，还有就是ES6新增的Set对象和Map对象。</p>
+<p>我们来看看的基本用法，将一个arguments转换成数组对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//[1,2,3]</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以将一个字符串转换成数组对象：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="keyword">log</span>(Array.<span class="keyword">from</span>(<span class="string">"abcdefg"</span>)); //[<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>, <span class="string">"g"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Array.from还包含2个可选参数：mapFn，thisArg<br>mapFn：将from返回的数组再进行处理再返回<br>thisArg：执行mapFn函数时this指向的值<br>假设页面上有多个span标签，我们想获取这些span标签里面的文本，这是html代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>第一个span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>第二个span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>第三个span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>第四个span<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们要获取span标签里面的文本成组成一个数组，可以这么做：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spans = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"span"</span>);</span><br><span class="line">    <span class="keyword">var</span> texts = <span class="built_in">Array</span>.from(spans, <span class="function"><span class="keyword">function</span> (<span class="params">val, key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> val.innerText;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(texts);</span><br></pre></td></tr></table></figure></p>
+<p>通过from函数将其转换成数组之后，再通过mapFn进行处理，获取每一个元素的innerText。</p>
+<p>Array.from是ES6中新增的功能，必然有很多浏览器不支持，可以使用下面的polyfill：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="type">MAX_ARRAY_INDEX</span> = <span class="type">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> isArrayLike = function (collection) &#123;</span><br><span class="line">    <span class="keyword">var</span> length = collection &amp;&amp; collection.length;</span><br><span class="line">    <span class="keyword">return</span> typeof length == 'number' &amp;&amp; length &gt;= <span class="number">0</span> &amp;&amp; length &lt;= <span class="type">MAX_ARRAY_INDEX</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> isFunction = function (fn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Object</span>.prototype.toString.call(fn) === '[<span class="keyword">object</span> <span class="type">Function</span>]';</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="type">Array</span>.<span class="keyword">from</span>) &#123;</span><br><span class="line">    <span class="type">Array</span>.<span class="keyword">from</span> = function (arrayLike, mapFn, thisArg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isArrayLike(arrayLike)) &#123;</span><br><span class="line">            throw new <span class="type">TypeError</span>(<span class="string">"被转换的对象不是一个类数组对象或可迭代对象"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mapFn = isFunction(mapFn) ? mapFn : function (val, key) &#123;</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arrayLike.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="literal">result</span>.push(mapFn.call(thisArg, arrayLike[i], i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Array-isArray">Array.isArray</h5><p>Array.isArray是用来判断一个对象是否是数组，在前面判断数组类型的章节我们已经提到过了，这里就不再赘述啦。</p>
+<h5 id="Array-of">Array.of</h5><p>Array.of方法是ES6中新增的方法，它可以将传入的多个参数作为一个数组返回。看下面例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Array.of(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)); <span class="comment">//[2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure></p>
+<p>通过传入4个参数，返回一个包含4个元素的数组。<br>注意Array.of与采用Array构造函数的区别，看下面代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(Array(<span class="number">4</span>));<span class="comment">//[]</span></span><br><span class="line">console.<span class="built_in">log</span>(Array.of(<span class="number">4</span>));<span class="comment">//[4]</span></span><br></pre></td></tr></table></figure></p>
+<p>第一种方式采用Array构造函数的方式，创建了一个4个元素的数组，每个元素的值都是undefined。<br>第二中方式采用Array.of方法的方式，创建了一个1个元素的数组，元素值是4。</p>
+<p>在不支持的浏览器中，可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.of) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.of = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="继承自Object的方法">继承自Object的方法</h4><p>我们知道，所有的引用类型都继承自Object对象，自然而然地包含了Object的一些方法。在Array中，我们主要说说其继承自Object的toString方法和valueOf方法。</p>
+<h5 id="toString方法">toString方法</h5><p>toString方法会返回对象的字符串表示，对于Array来说，这个方法会将每一个元素值用逗号分隔起来，最终形成一个字符串返回：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].toString()); <span class="comment">//1,2,3,4</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="valueOf方法">valueOf方法</h5><p>valueOf方法用来返回对象的原始值，对于Array来说，它将返回数组本身：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].valueOf());<span class="comment">//[1,2,3,4]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="元素判断方法">元素判断方法</h4><p>在ES5中，Array原型中增加了2个判断数组是否满足某一条件的方法，下面分别来说明一下：</p>
+<h5 id="every方法">every方法</h5><p>every方法用来判断数组中的所有元素是否都满足条件，如果全部满足则返回true，否则false。<br>every的用法如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.<span class="function"><span class="title">every</span><span class="params">(callback[, thisArg])</span></span></span><br></pre></td></tr></table></figure></p>
+<p>其中callback是用来判断每个元素是否满足条件的函数，它包含两个参数：元素值，索引，数组本身。<br>thisArg参数是可选的，它表示callback中this指向的对象。<br>看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]; </span><br><span class="line">console.<span class="built_in">log</span>(arr.every(function (val, index) &#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">0</span>;</span><br><span class="line">&#125;));<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>在不支持的浏览器中，可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Array</span>.prototype.every) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.every = <span class="function"><span class="keyword">function</span> (<span class="params">fn, thisArg</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!fn.call(thisArg, arr[i], i, arr)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="some方法">some方法</h5><p>some方法和every方法用法类似，但是它只需要数组中的某一个元素符合条件即返回true。<br>我们来看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.some(function (val, index) &#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">2</span>;</span><br><span class="line">&#125;));  <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>在数组中，只有一项元素大于2，则返回true。<br>在不支持的浏览器中，可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.some) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.some = <span class="function"><span class="keyword">function</span> (<span class="params">fn, thisArg</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fn.call(thisArg, arr[i], i)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="栈和队列方法">栈和队列方法</h4><p>在js中，数组即可以像栈那个操作，也可以像队列那样操作，它提供了几个关于栈和队列的方法，这些方法相信大家非常熟悉，在这里简单地说明一下：</p>
+<h5 id="pop方法">pop方法</h5><p>pop方法会将数组的最后一个元素删除，然后返回这个被删除的元素</p>
+<h5 id="push方法">push方法</h5><p>push方法是一个比较常用的方法，和pop方法相反，它用来将一个元素添加到元素的末尾，然后返回数组的长度。</p>
+<h5 id="shift方法">shift方法</h5><p>shift方法将第一个元素删除，然后返回这个元素</p>
+<h5 id="unshift方法">unshift方法</h5><p>unshift在数组开头添加一个或多个元素，然后返回这个元素的长度：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.unshift(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>));<span class="comment">//6</span></span><br><span class="line">console.<span class="built_in">log</span>(arr);  <span class="comment">// [3,2,1,1,2,3]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="元素索引方法">元素索引方法</h4><h5 id="indexOf方法">indexOf方法</h5><p>indexOf方法用来返回元素在数组中的位置，不存在则返回-1：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.indexOf(<span class="number">2</span>));  <span class="comment">//1</span></span><br></pre></td></tr></table></figure></p>
+<p>indexOf方法有第二个可选参数，这个参数表示从哪个索引开始查找：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.<span class="built_in">log</span>(arr.indexOf(<span class="number">2</span>, <span class="number">1</span>)); <span class="comment">//1</span></span><br></pre></td></tr></table></figure></p>
+<p>如果这个参数大于数组长度，则直接返回-1，如果是负数，则将末尾进行抵消，然后开始查找，比如-1就从倒数第一开始查找，-2从倒数第二开始查找。<br>indexOf方法是ES5中提供的方法，对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!Array.<span class="keyword">prototype</span>.indexOf) &#123;</span><br><span class="line">    Array.<span class="keyword">prototype</span>.indexOf = function (element, fromIndex) &#123;</span><br><span class="line">        <span class="keyword">if</span> (this.<span class="keyword">length</span> === <span class="number">0</span> || this.<span class="keyword">length</span> &lt; fromIndex) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        var <span class="keyword">index</span> = fromIndex || <span class="number">0</span>;</span><br><span class="line">        var <span class="keyword">length</span> = this.<span class="keyword">length</span>;</span><br><span class="line">        <span class="keyword">if</span> (fromIndex &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">index</span> = <span class="keyword">length</span> + fromIndex;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">for</span> (; <span class="keyword">index</span> &lt; <span class="keyword">length</span>; <span class="keyword">index</span>++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (this[<span class="keyword">index</span>] === element) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">index</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="lastIndexOf方法">lastIndexOf方法</h5><p>lastIndexOf方法和indexOf方法类似，它用于查找元素在数组最后一项的索引，如果不存在则返回-1：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.indexOf(<span class="number">5</span>));<span class="comment">//1</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.lastIndexOf(<span class="number">5</span>));  <span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>如上面例子所示，数组中存在着两个数字5，使用indexOf方法将返回1，使用lastIndexOf将返回5。<br>lastIndexOf方法同样拥有第二个可选参数fromIndex，表示从该位置开始逆向查找。<br>如果fromIndex值大于或等于数组长度，则整个数组都会被查找。<br>如果fromIndex值为负值，并且其绝对值小于数组长度时，将从数组末尾向前查找。<br>如果fromIndex只为负数，但是其绝对值大于数组长度时，则直接返回-1。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.lastIndexOf(<span class="number">5</span>, <span class="number">10</span>)); <span class="comment">//4 </span></span><br><span class="line">console.<span class="built_in">log</span>(arr.lastIndexOf(<span class="number">5</span>, -<span class="number">4</span>));  <span class="comment">//1</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.lastIndexOf(<span class="number">5</span>, -<span class="number">10</span>));  <span class="comment">//-1</span></span><br></pre></td></tr></table></figure></p>
+<p>对于不支持的浏览器，可以使用下面的polyfill：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!Array.<span class="keyword">prototype</span>.lastIndexOf) &#123;</span><br><span class="line">    Array.<span class="keyword">prototype</span>.lastIndexOf = function (element, fromIndex) &#123;</span><br><span class="line">        <span class="keyword">if</span> (this.<span class="keyword">length</span> === <span class="number">0</span> || (fromIndex &lt; <span class="number">0</span> &amp;&amp; this.<span class="keyword">length</span> &lt; Math.<span class="keyword">abs</span>(fromIndex))) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        var <span class="keyword">length</span> = this.<span class="keyword">length</span>;</span><br><span class="line">        var <span class="keyword">index</span> = fromIndex || <span class="keyword">length</span> - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (fromIndex &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">index</span> = <span class="keyword">length</span> + fromIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (; <span class="keyword">index</span> &gt; -<span class="number">1</span>; <span class="keyword">index</span>--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (this[<span class="keyword">index</span>] === element) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">index</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="元素查找方法">元素查找方法</h4><h5 id="findIndex方法">findIndex方法</h5><p>findIndex方法用来查找数组中符合条件的元素的索引，如果没有则返回-1。它包含两个参数：<br>callback：用来判断元素是否符合条件的回调函数，包含三个参数，分别是：当前元素，当前元素索引，数组<br>thisArg：可选参数，表示callback中this对象。<br>来看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line">    console.<span class="built_in">log</span>(arr.findIndex(function (val, idx) &#123;</span><br><span class="line">        <span class="keyword">return</span> val &gt; <span class="number">3</span>;</span><br><span class="line">&#125;)) <span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>查找第一个大于3的元素的索引，结果为3。<br>如果是一个比较复杂元素的数组，我们可以来查找其中符合某个条件的元素的索引：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> var arr = [&#123; a: <span class="number">1</span> &#125;, &#123; a: <span class="number">2</span> &#125;];</span><br><span class="line">console.<span class="built_in">log</span>(arr.indexOf(&#123; a: <span class="number">2</span> &#125;));<span class="comment">//-1</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.findIndex(function (val, idx) &#123;</span><br><span class="line">    <span class="keyword">return</span> val.a == <span class="number">2</span>;<span class="comment">//1</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure></p>
+<p>如果是要查找一个复杂对象，使用indexOf可能查找不到其索引，但是我们可以通过findIndex来找到其索引。这个对于查找复杂元素非常有用。<br>对于不支持的浏览器，可以使用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.findIndex) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.findIndex = <span class="function"><span class="keyword">function</span> (<span class="params">fn, thisArg</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fn.call(thisArg, arr[i], i, arr)) &#123;</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="find方法">find方法</h5><p>find方法用户查找满足条件的第一个元素，如果没有满足条件的元素，则返回undefined。<br>find方法的用法和findIndex类似，它包含两个参数：<br>callback：用来判断元素是否符合条件的回调函数，包含三个参数，分别是：当前元素，当前元素索引，数组<br>thisArg：可选参数，表示callback中this对象。<br>来看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&#123; v: <span class="number">1</span> &#125;, &#123; v: <span class="number">3</span> &#125;, &#123; v: <span class="number">4</span> &#125;, &#123; v: <span class="number">5</span> &#125;, &#123; v: <span class="number">6</span> &#125;];</span><br><span class="line">    console.<span class="built_in">log</span>(arr.find(function (val, idx) &#123;</span><br><span class="line">        <span class="keyword">return</span> val.v &gt; <span class="number">3</span>;</span><br><span class="line">&#125;))<span class="comment">//Object &#123;v: 4&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>通过find方法，查找到第一个其属性v大于3的元素并返回。<br>大家在日常的开发中一定会遇到这种查找符合条件的元素的需求，find方法是一个非常有用的方法。<br>对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.find) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.find = <span class="function"><span class="keyword">function</span> (<span class="params">fn, thisArg</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fn.call(thisArg, arr[i], i, arr)) &#123;</span><br><span class="line">                <span class="keyword">return</span> arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="元素排序方法">元素排序方法</h4><p>在Array对象中，它还包含了一些排序的方法，主要有sort和reverse两个方法，下面来说明一下这两个方法。</p>
+<h5 id="sort方法">sort方法</h5><p>sort方法用来对数组进行排序，并返回排序后的数组。它包含一个参数，这个参数是一个函数，用它来比较每个参数之前的前后关系。如果不传，则默认按照字符串的Unicode码位点进行排序。<br>看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">34</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.sort().toString());  <span class="comment">//11,2,2,34,4,4,6,8</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.sort(function (a, b) &#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;).toString());  <span class="comment">//2,2,4,4,6,8,11,34</span></span><br></pre></td></tr></table></figure></p>
+<p>如上结果所示，不指定比较函数的话，11排到了2前面，所以一般来说，我们要指定这个比较函数。</p>
+<p>通过比较函数，我们可以来自定义数组排序的规则：<br>（1）返回-1，则元素a则排在了b前面<br>（2）返回0，位置不变<br>（3）返回1，元素a排在b后面</p>
+<h5 id="reverse方法">reverse方法</h5><p>reverse方法是一个很简单的方法，它将数组元素的顺序进行倒序，并返回这个数组。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.reverse()); <span class="comment">//[7, 6, 5, 4, 3, 2, 1]</span></span><br><span class="line">console.<span class="built_in">log</span>(arr);  <span class="comment">//[7, 6, 5, 4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="元素循环方法">元素循环方法</h4><p>Array对象中包含一些对元素进行遍历的方法，通过对元素进行遍历，从而进行不同的操作。</p>
+<h5 id="filter方法">filter方法</h5><p>filter方法是用来过滤数组的，通过传入一个回调函数，如果元素通过回调函数的测试，则保留该元素，否则丢弃。具体用法如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.filter(function (val, idx, arr) &#123;</span><br><span class="line">    <span class="keyword">return</span> val &gt; <span class="number">3</span>;</span><br><span class="line">&#125;))  <span class="comment">//[4, 5, 6, 7, 8]</span></span><br></pre></td></tr></table></figure></p>
+<p>如上所示，通过回调函数，我们过滤掉那些值不大于3的元素。<br>对于回调函数，它包含3个参数：元素，元素索引，当前数组。<br>filter函数还包含一个可选的参数thisArg，它表示回调函数中this的指向。<br>对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="type">Array</span>.prototype.filter) &#123;</span><br><span class="line">    <span class="type">Array</span>.prototype.filter = function (fn, thisArg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            throw new <span class="type">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> arr = this;</span><br><span class="line">        <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fn.call(thisArg, arr[i], i, arr)) &#123;</span><br><span class="line">                <span class="literal">result</span>.push(arr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="forEach函数">forEach函数</h5><p>forEach简单地说就是for循环的语法糖，它用于让数组的每一项都执行给定的函数。<br>看看下面的例子，循环数组的每一项，分别输入每一项。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>];</span><br><span class="line">arr.forEach(function (val, idx) &#123;</span><br><span class="line">    console.<span class="built_in">log</span>(val);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>和其他循环方法一样，forEach包含两个参数：<br>callback：循环每一项调用的函数，包含三个参数：元素，元素索引，当前数组<br>thisArg：可选的参数，表示callback中this的指向。<br>有一点要注意的是：除非是抛出异常，否则无法终止或跳出循环。<br>对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.forEach) &#123;</span><br><span class="line">    <span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span> (<span class="params">fn, thisArg</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            fn.call(thisArg, arr[i], i, arr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="reduce函数">reduce函数</h5><p>reduct函数我们可以将其想象成一个累加器，从左到右依次将每个元素累加起来。<br>看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.reduce(function (prev, current, currentIndex, <span class="built_in">array</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> prev + current;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>这个例子中，通过reduce方法将数组的元素累加起来，计算总和。<br>reduct包含两个参数：<br>callback：累加调用函数，包含4个参数：<br>（1）上一次调用的返回值，默认情况下是第一个元素<br>（2）当前元素<br>（3）当前元素索引<br>（4）被循环的数组<br>initialValue：累加的初始值，不传则是第一个元素<br>对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="type">Array</span>.prototype.reduce) &#123;</span><br><span class="line">    <span class="type">Array</span>.prototype.reduce = function (fn, initialValue) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            throw new <span class="type">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> arr = this;</span><br><span class="line">        <span class="keyword">var</span> <span class="literal">result</span> = initialValue || arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> index = !!initialValue ? -<span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> length = arr.length - <span class="number">1</span>; index &lt; length; index++) &#123;</span><br><span class="line">            <span class="literal">result</span> = fn(<span class="literal">result</span>, arr[index + <span class="number">1</span>], index + <span class="number">1</span>, arr);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="reduceRight方法">reduceRight方法</h5><p>reduceRight与reduce类似，只是从右向左开始调用回调函数，这里就不再赘述。<br>对于不支持的浏览器，可以使用下面的polyfill：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="type">Array</span>.prototype.reduceRight) &#123;</span><br><span class="line">    <span class="type">Array</span>.prototype.reduceRight = function (fn, initialValue) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            throw new <span class="type">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> arr = this;</span><br><span class="line">        <span class="keyword">var</span> <span class="literal">result</span> = initialValue || arr[arr.length - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">var</span> index = !!initialValue ? arr.length : arr.length - <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (; index &gt; <span class="number">0</span>; index--) &#123;</span><br><span class="line">            <span class="literal">result</span> = fn(<span class="literal">result</span>, arr[index - <span class="number">1</span>], index - <span class="number">1</span>, arr);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="map函数">map函数</h5><p>map方法用来将数组转换成另外一个数组，通过传入的函数来进行转换。来看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">map</span>(function (val, idx, <span class="built_in">array</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">"val"</span>: val &#125;;</span><br><span class="line">&#125;))  <span class="comment">//[Object, Object, Object, Object, Object]</span></span><br></pre></td></tr></table></figure></p>
+<p>和其他循环方法一样，map方法包含两个参数：<br>callback：循环每一项调用的函数，包含三个参数：元素，元素索引，当前数组<br>thisArg：可选的参数，表示callback中this的指向。</p>
+<p>对于不支持的浏览器，可以采用下面的polyfill：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="type">Array</span>.prototype.map) &#123;</span><br><span class="line">    <span class="type">Array</span>.prototype.map = function (fn, thisArg) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isFunction(fn)) &#123;</span><br><span class="line">            throw new <span class="type">TypeError</span>(<span class="string">"fn不是一个有效的函数"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> arr = this;</span><br><span class="line">        <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = arr.length; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="literal">result</span>.push(fn.call(thisArg, arr[i], i, arr));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="数组操作方法">数组操作方法</h4><h5 id="concat方法">concat方法</h5><p>concat方法用来将传入的数组参数或非数组参数与原数组本身合并成一个新数组并返回，具体用法如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.concat([<span class="number">4</span>, <span class="number">5</span>]));<span class="comment">//1,2,3,4,5</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.concat(<span class="number">4</span>, <span class="number">5</span>));<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的例子，我们可以看出三点：<br>（1）传入的参数可以是数组，也可以是非数组<br>（2）传入的参数数量没有限定<br>（3）原来的数组并不会被改变</p>
+<h5 id="slice方法">slice方法</h5><p>slice方法用来剪切数组成一个新的数组，然后返回这个新数组。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line">var newArr = arr.slice(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">console.<span class="built_in">log</span>(newArr);<span class="comment">//[2,3]</span></span><br></pre></td></tr></table></figure></p>
+<p>slice方法含有参数：<br>start：截取数组的开始索引，不传则默认为0<br>end：截取数组的结束索引，不传则截取到末尾，如果传了end参数，则被截取的数组将从start开始，于end索引处结束（不包含end）。</p>
+<p>还有一点需要注意的是，被截取的数组的元素是引用对象的话，新数组的元素是和原数组的元素实际上是引用了同一个对象：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&#123; v: <span class="number">1</span> &#125;, &#123; v: <span class="number">2</span> &#125;];</span><br><span class="line">var newArr = arr.slice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">newArr[<span class="number">0</span>].v = <span class="number">666</span>;</span><br><span class="line">console.<span class="built_in">log</span>(newArr[<span class="number">0</span>]);<span class="comment">//Object &#123;v: 666&#125;</span></span><br><span class="line">console.<span class="built_in">log</span>(arr[<span class="number">0</span>]);  <span class="comment">//Object &#123;v: 666&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>如上所示，数组里的元素是引用对象，修改其中一个元素的值，另一个也会跟着变化。</p>
+<h5 id="splice方法">splice方法</h5><p>splice方法是数组操作中最为强大的方法：它可以新增，删除，替换数组的元素。<br>splice方法会返回被删除的元素组成的数组，它包含三个参数：<br>（1）start：从哪个索引开始修改数组，如果值大于数组长度，则表示从末尾开始添加内容，如果是负数，则从数组的末位开始的第几位。<br>（2）deleteCount：表示要删除的数组的数量，如果deleteCount的值大于start索引之后元素的数量，则后面所有元素将被删除。<br>（3）items：要添加的新元素，如果不传入该参数，则表示删除元素<br>我们来看看具体的几个例子：</p>
+<p><strong>删除元素：</strong><br>1、只传递start参数，并且start参数大于0小于数组长度<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(<span class="number">2</span>).toString());<span class="comment">//空字符串或3,4,5,6,7,8,9,10</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());<span class="comment">//1,2,3,4,5,6,7,8,9,10或1,2</span></span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，splice只传递了start参数，这种情况下，根据浏览器有两种情况：<br>（1）在IE8等旧浏览器下，数组不会被该变<br>（2）在新浏览器下，数组会被删除掉从start参数开始后的所有元素</p>
+<p>2、只传递start参数，并且start参数大于数组长度<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(<span class="number">15</span>).toString());<span class="comment">//空字符串</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());<span class="comment">//1,2,3,4,5,6,7,8,9,10</span></span><br></pre></td></tr></table></figure></p>
+<p>传递了大于数组长度的值之后，数组没有被修改</p>
+<p>3、只传递start参数，并且start参数是负数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(-<span class="number">2</span>).toString());<span class="comment">//9,10</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());  <span class="comment">//1,2,3,4,5,6,7,8</span></span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们传递了-2，也就是说，splice方法将从数组的末尾开始删除，即从末尾的第二位，最终被删除的元素就是9，10<br>注意：对于IE8等旧浏览器来说，数组仍然没有被修改</p>
+<p>4、只传递start参数，并且start参数是绝对值大于数组长度的负数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(-<span class="number">1</span>).toString());<span class="comment">//1,2,3,4,5,6,7,8,9,10</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());  <span class="comment">//</span></span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们传递了-15，其绝对值15大于数组长度，则整个数组都被删除了。<br>注意：对于IE8等旧浏览器来说，数组仍然没有被修改</p>
+<p>5、传递start和deleteCount参数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(<span class="number">1</span>, <span class="number">2</span>).toString());<span class="comment">//2,3</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());<span class="comment">//1,4,5,6,7,8,9,10</span></span><br></pre></td></tr></table></figure></p>
+<p>这个例子中，传递了start参数1，deleteCount参数2，表示从索引1的位置删除2个元素，所以最终结果如上所示。</p>
+<p>6、传递start和deleteCount参数，其中start参数是负数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(-<span class="number">5</span>, <span class="number">2</span>).toString());<span class="comment">//6,7</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());<span class="comment">//1,2,3,4,5,8,9,10</span></span><br></pre></td></tr></table></figure></p>
+<p>我们传递了-5给start参数，则数组将从倒数第5位开始修改，然后删除2个元素，所以最终结果如上所示。</p>
+<p><strong>添加元素</strong><br>splice方法也可以用来添加元素，我们要通过传递deleteCount参数为0，并且items不能为空来添加元素。看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>).toString());</span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());  <span class="comment">//1,2,2,2,2,3,4,5,6,7,8,9,10</span></span><br></pre></td></tr></table></figure></p>
+<p>如上所示，我们在索引为1的位置开始添加了3个2作为新增的元素到数组中。</p>
+<p><strong>替换元素</strong><br>splice方法用来替换元素和添加元素传递的参数类似，唯一的区别在于deleteCount不能为0。看看下面的例子：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>];</span><br><span class="line">console.<span class="built_in">log</span>(arr.splice(<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>).toString());<span class="comment">//2,3,4</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.toString());<span class="comment">//1,2,2,2,5,6,7,8,9,10</span></span><br></pre></td></tr></table></figure></p>
+<p>这个例子中，从索引为1的元素开始，删除掉3个元素，然后再添加2,2,2这三个元素，最终数组变成1,2,2,2,5,6,7,8,9,10。</p>
+<h4 id="数组对象的方法总结">数组对象的方法总结</h4><p>Array对象上包含了很多个方法，有一些方法会修改数组本身，有一些方法只是返回新数组，在这里简单总结下：<br>（1）修改数组本身的方法：pop，push，shift，unshift，sort，reverse，splice<br>（2）不修改数组本身，只返回新数组的方法：concat，slice<br>另外，对于旧浏览器，可以引用这个polyfill：<a href="https://github.com/LuoPQ/array.polyfill.js" target="_blank">array.polyfill.js</a></p>
+<h3 id="数组面试题">数组面试题</h3><p>数组是在实际开发中非常经常遇到的一个对象，而关于数组的面试题也经常遇到，下面说说一些几个常见的数组面试题：</p>
+<h4 id="数组去重">数组去重</h4><p>数组去重是一个很常见的面试题，一个数组有多个元素，其中包含一些重复的元素，如何去除掉这些重复的元素呢？<br>最常见的方法是采用hash表去重法，看下面的代码：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Array</span>.prototype.<span class="keyword">distinct</span> = function () &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = this;</span><br><span class="line">    <span class="keyword">var</span> dic = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> key = arr[i];</span><br><span class="line">        <span class="keyword">if</span> (!dic[key]) &#123;</span><br><span class="line">            dic[key] = arr[i];</span><br><span class="line">            <span class="literal">result</span>.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>());//[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>());  //[<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>这个是最简单的情况，可以简单地实现数组的去重。但是也有一个明显的缺点：在作为key值时，元素会自动调用toString，最终导致一些复杂本来不是重复的元素被误认为重复。<br>我们看下面的例子：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>());//[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p>这个例子中，数组分别包含数字1,2,3，字符串“1”，“2”，“3”，这原本是不重复的元素，去重后就剩下了1,2,3了。我们将上面的方法优化一下：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Array</span>.prototype.<span class="keyword">distinct</span> = function () &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = this;</span><br><span class="line">    <span class="keyword">var</span> dic = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> key = typeof (arr[i]) + arr[i];</span><br><span class="line">        <span class="keyword">if</span> (!dic[key]) &#123;</span><br><span class="line">            dic[key] = arr[i];</span><br><span class="line">            <span class="literal">result</span>.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们将所谓hash表的key值的元素加上一个类型：var key = typeof (arr[i]) + arr[i]，这样问题就基本解决了：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>());//[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"true"</span>, <span class="literal">true</span>, <span class="literal">true</span>];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>());//[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"true"</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure></p>
+<p>如果涉及到更极端的情况，数组元素中包含undefined或null，会怎么样呢，这种情况下，我们就要再进行一层判断：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Array</span>.prototype.<span class="keyword">distinct</span> = function () &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = this;</span><br><span class="line">    <span class="keyword">var</span> dic = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hasUnderfined = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> hasNull = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">type</span> = typeof (arr[i]);</span><br><span class="line">        <span class="keyword">if</span> (arr[i] === null) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasNull == <span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hasNull = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasUnderfined) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hasUnderfined = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> key = <span class="keyword">type</span> + arr[i];</span><br><span class="line">        <span class="keyword">if</span> (!dic[key]) &#123;</span><br><span class="line">            dic[key] = arr[i];</span><br><span class="line">            <span class="literal">result</span>.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, undefined, undefined, null, null];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>()); //[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>, undefined, null]</span><br></pre></td></tr></table></figure></p>
+<p>我们再来考虑一下，如果数组是复杂对象的情况下会如何，假设这种情况：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> arr</span> = [&#123;<span class="variable"><span class="keyword">val</span></span> : <span class="number">1</span>&#125;, &#123;<span class="variable"><span class="keyword">val</span></span> : <span class="number">1</span>&#125;,&#123; <span class="variable"><span class="keyword">val</span></span> : <span class="number">2</span>&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>通常对于这样的数据，我们是将两个{val:1}当成是一样的数据的，但是由于是引用类型，它们又是不相等的数据，如果要去重，应该如何做呢？<br>我们可以传入一个key值转换函数，通过这个函数来过滤这些复杂的数据：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isFunction = function (fn) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Object</span>.prototype.toString.call(fn) === '[<span class="keyword">object</span> <span class="type">Function</span>]';</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Array</span>.prototype.<span class="keyword">distinct</span> = function (keyThunk) &#123;</span><br><span class="line">    <span class="keyword">var</span> arr = this;</span><br><span class="line">    <span class="keyword">var</span> dic = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> <span class="literal">result</span> = [];</span><br><span class="line"></span><br><span class="line">    keyThunk = isFunction(keyThunk) ? keyThunk : function (val) &#123;</span><br><span class="line">        <span class="keyword">return</span> typeof (val) + val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hasUnderfined = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> hasNull = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">type</span> = typeof (arr[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (arr[i] === null) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasNull == <span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hasNull = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">type</span> === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hasUnderfined) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hasUnderfined = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> key = keyThunk(arr[i]);</span><br><span class="line">        <span class="keyword">if</span> (!dic[key]) &#123;</span><br><span class="line">            dic[key] = arr[i];</span><br><span class="line">            <span class="literal">result</span>.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [&#123; val: <span class="number">1</span> &#125;, &#123; val: <span class="number">1</span> &#125;, &#123; val: <span class="number">3</span> &#125;];</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>().map(function (val) &#123;</span><br><span class="line">    <span class="keyword">return</span> val.val</span><br><span class="line">&#125;));//[<span class="number">1</span>]</span><br><span class="line">console.log(arr.<span class="keyword">distinct</span>(function (val) &#123;</span><br><span class="line">    <span class="keyword">return</span> val.val;</span><br><span class="line">&#125;).map(function (val) &#123;</span><br><span class="line">    <span class="keyword">return</span> val.val;</span><br><span class="line">&#125;)) [<span class="number">1</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p>我们添加了一个key值的转换函数，这样就可以比较那些复杂对象了。</p>
+<p>欢迎补充其他常见的面试题！</p>
+<h3 id="总结">总结</h3><p>本文详细总结了Javascript中Array对象，首先从基本概念开始说起，然后一一介绍了一些常用的数组方法，将其整理归类。最后解答了一些常见的面试题，欢迎大家交流！！</p>
+</span>
+      
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript/" rel="tag">#Javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/28/Object-in-Javascript/" rel="next">详解Javascript中的Object对象</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/04/01/Array-in-Javascript/"
+                   data-title="详解Javascript中的Array对象" data-url="http://luopq.com/2016/04/01/Array-in-Javascript/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/about"><img class="site-author-image" src="http://tp4.sinaimg.cn/1836010911/180/5614933698/1" alt="LuoPQ" itemprop="image" title="LuoPQ"/></a>
+          <p class="site-author-name" itemprop="name">LuoPQ</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+                     
+              <a href="/about" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                About
+              </a>
+          
+                     
+              <a href="/books" rel="alternate">
+                <i class="menu-item-icon icon-next-feed"></i>
+                Books
+              </a>
+          
+          
+          </div>
+        
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/luopq" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/lrzw32" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础介绍"><span class="nav-number">1.</span> <span class="nav-text">基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建数组"><span class="nav-number">1.1.</span> <span class="nav-text">创建数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">构造函数创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字面量法创建"><span class="nav-number">1.1.2.</span> <span class="nav-text">字面量法创建</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组长度"><span class="nav-number">1.2.</span> <span class="nav-text">数组长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组检测"><span class="nav-number">1.3.</span> <span class="nav-text">数组检测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些常用的数组对象方法"><span class="nav-number">2.</span> <span class="nav-text">一些常用的数组对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态方法"><span class="nav-number">2.1.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-from"><span class="nav-number">2.1.1.</span> <span class="nav-text">Array.from</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-isArray"><span class="nav-number">2.1.2.</span> <span class="nav-text">Array.isArray</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-of"><span class="nav-number">2.1.3.</span> <span class="nav-text">Array.of</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承自Object的方法"><span class="nav-number">2.2.</span> <span class="nav-text">继承自Object的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#toString方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">toString方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#valueOf方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">valueOf方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素判断方法"><span class="nav-number">2.3.</span> <span class="nav-text">元素判断方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#every方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">every方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#some方法"><span class="nav-number">2.3.2.</span> <span class="nav-text">some方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈和队列方法"><span class="nav-number">2.4.</span> <span class="nav-text">栈和队列方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#pop方法"><span class="nav-number">2.4.1.</span> <span class="nav-text">pop方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#push方法"><span class="nav-number">2.4.2.</span> <span class="nav-text">push方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shift方法"><span class="nav-number">2.4.3.</span> <span class="nav-text">shift方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#unshift方法"><span class="nav-number">2.4.4.</span> <span class="nav-text">unshift方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素索引方法"><span class="nav-number">2.5.</span> <span class="nav-text">元素索引方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#indexOf方法"><span class="nav-number">2.5.1.</span> <span class="nav-text">indexOf方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lastIndexOf方法"><span class="nav-number">2.5.2.</span> <span class="nav-text">lastIndexOf方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素查找方法"><span class="nav-number">2.6.</span> <span class="nav-text">元素查找方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#findIndex方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">findIndex方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find方法"><span class="nav-number">2.6.2.</span> <span class="nav-text">find方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素排序方法"><span class="nav-number">2.7.</span> <span class="nav-text">元素排序方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#sort方法"><span class="nav-number">2.7.1.</span> <span class="nav-text">sort方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reverse方法"><span class="nav-number">2.7.2.</span> <span class="nav-text">reverse方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素循环方法"><span class="nav-number">2.8.</span> <span class="nav-text">元素循环方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#filter方法"><span class="nav-number">2.8.1.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#forEach函数"><span class="nav-number">2.8.2.</span> <span class="nav-text">forEach函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reduce函数"><span class="nav-number">2.8.3.</span> <span class="nav-text">reduce函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reduceRight方法"><span class="nav-number">2.8.4.</span> <span class="nav-text">reduceRight方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map函数"><span class="nav-number">2.8.5.</span> <span class="nav-text">map函数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组操作方法"><span class="nav-number">2.9.</span> <span class="nav-text">数组操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#concat方法"><span class="nav-number">2.9.1.</span> <span class="nav-text">concat方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#slice方法"><span class="nav-number">2.9.2.</span> <span class="nav-text">slice方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#splice方法"><span class="nav-number">2.9.3.</span> <span class="nav-text">splice方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组对象的方法总结"><span class="nav-number">2.10.</span> <span class="nav-text">数组对象的方法总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组面试题"><span class="nav-number">3.</span> <span class="nav-text">数组面试题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组去重"><span class="nav-number">3.1.</span> <span class="nav-text">数组去重</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuoPQ</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"luopq"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
