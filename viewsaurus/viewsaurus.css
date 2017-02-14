@@ -632,7 +632,7 @@
   width: 20%;
   height: 100%;
   text-align: center;
-  color: #231f20;
+  color: #0072b3;
   font-size: 22px;
   display: table;
   vertical-align: middle;
@@ -655,7 +655,7 @@
   cursor: pointer;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-overview:hover {
-  color: #4c4345;
+  color: #00a3ff;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-next a,
@@ -672,12 +672,12 @@
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a:visited {
-  color: #231f20;
+  color: #0072b3;
   cursor: pointer;
   pointer-events: all;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a:hover {
-  color: #4c4345;
+  color: #00a3ff;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous {
   position: absolute;
