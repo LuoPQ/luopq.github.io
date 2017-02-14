@@ -506,7 +506,7 @@
   text-decoration: none;
   text-align: center;
   line-height: 44px;
-  background-color: #56c4c3;
+  background-color: #fe8034;
   height: 44px;
   width: 100%;
   border: 0;
@@ -518,7 +518,7 @@
   margin: 20px auto;
 }
 #viewsaurus .saurus-prose .saurus-start a:hover {
-  background-color: #8fd8d7;
+  background-color: #feb080;
 }
 #viewsaurus .saurus-prose .saurus-overview {
   position: absolute;
@@ -889,4 +889,62 @@
 }
 #viewsaurus .saurus-explorer a.explorer-get-code i {
   margin-right: 5px;
+}
+#viewsaurus ul,
+#viewsaurus ol {
+  list-style: none;
+}
+#viewsaurus a {
+  text-decoration: none;
+}
+#viewsaurus .center-section {
+  margin: 0 auto;
+  width: 980px;
+}
+#viewsaurus .dpw-header-container {
+  border-bottom: 1px solid #cdcdcd;
+  background-color: #f9f9f9;
+  font-family: "Lao UI";
+}
+#viewsaurus .dpw-header-container .dpw-header {
+  display: table;
+}
+#viewsaurus .dpw-header-container .logo {
+  display: table-cell;
+  vertical-align: middle;
+  width: 253px;
+  padding-right: 80px;
+  height: 55px;
+}
+#viewsaurus .dpw-header-container .logo a {
+  display: block;
+  height: 34px;
+  background: url("https://developers.ringcentral.com/assets/images/logo_beta.svg") no-repeat;
+}
+#viewsaurus .dpw-header-container .nav-top-menu {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0;
+}
+#viewsaurus .dpw-header-container .nav-top-menu-item {
+  display: inline-block;
+  margin-right: 26px;
+  position: relative;
+}
+#viewsaurus .dpw-header-container .nav-top-menu-item a {
+  height: 48px;
+  line-height: 48px;
+  color: #585858;
+}
+#viewsaurus .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #303030;
+  color: #797979;
+}
+#viewsaurus .footer-content {
+  width: 980px;
+  margin: 0 auto;
 }
