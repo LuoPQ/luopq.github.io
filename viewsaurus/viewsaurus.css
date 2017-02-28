@@ -1090,7 +1090,7 @@
   font-weight: 300;
   font-style: normal;
   src: url('../fonts/lato/lato-lig-webfont-g.eot');
-  src: url('fonts/lato/lato-lig-webfont-g.eot?#iefix') format('embedded-opentype'), url('fonts/lato/lato-lig-webfont-g.woff') format('woff'), url('../fonts/lato/lato-lig-webfont-g.ttf') format('truetype'), url('../fonts/lato/lato-lig-webfont.svg#latolight') format('svg');
+  src: url('../fonts/lato/lato-lig-webfont-g.eot?#iefix') format('embedded-opentype'), url('../fonts/lato/lato-lig-webfont-g.woff') format('woff'), url('../fonts/lato/lato-lig-webfont-g.ttf') format('truetype'), url('../fonts/lato/lato-lig-webfont.svg#latolight') format('svg');
 }
 @font-face {
   font-family: "Lato";
