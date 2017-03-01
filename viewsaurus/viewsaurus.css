@@ -934,8 +934,8 @@
 }
 @font-face {
   font-family: 'DPW_Font';
-  src: url('fonts/icon/DPW_Font.eot?wwvao0');
-  src: url('fonts/icon/DPW_Font.eot?wwvao0#iefix') format('embedded-opentype'), url('fonts/icon/DPW_Font.woff2?wwvao0') format('woff2'), url('fonts/icon/DPW_Font.ttf?wwvao0') format('truetype'), url('fonts/icon/DPW_Font.woff?wwvao0') format('woff'), url('fonts/icon/DPW_Font.svg?wwvao0#DPW_Font') format('svg');
+  src: url('fonts/icon/DPW_Font.eot?r45ik9');
+  src: url('fonts/icon/DPW_Font.eot?r45ik9#iefix') format('embedded-opentype'), url('fonts/icon/DPW_Font.woff2?r45ik9') format('woff2'), url('fonts/icon/DPW_Font.ttf?r45ik9') format('truetype'), url('fonts/icon/DPW_Font.woff?r45ik9') format('woff'), url('fonts/icon/DPW_Font.svg?r45ik9#DPW_Font') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -966,6 +966,12 @@
 }
 .icon-youtube:before {
   content: "\e92a";
+}
+.icon-menu {
+  padding-top: 7px;
+}
+.icon-menu:before {
+  content: "\e932";
 }
 .left-section {
   margin-left: 30px;
@@ -1038,14 +1044,14 @@
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-next a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous a:visited,
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-next a:visited {
-  color: #15b0ff;
+  color: #cdcdcd;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a:visited {
   color: #0073ae;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .clickable a:hover {
-  color: #48c1ff;
+  opacity: 0.7;
 }
 #viewsaurus .saurus-prose .saurus-content {
   top: 40px;
@@ -1115,6 +1121,7 @@
 #viewsaurus .saurus-code .ace_scroller {
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 10px;
 }
 #viewsaurus .saurus-code .ace_scrollbar {
   scrollbar-track-color: #ffffff;
@@ -1149,7 +1156,7 @@
   background-color: #ffffff;
 }
 #viewsaurus .saurus-explorer .saurus-file-list ul li {
-  color: #303030;
+  color: #585858;
   font-weight: bold;
 }
 #viewsaurus .saurus-explorer .saurus-file-list ul li :hover {
@@ -1180,7 +1187,8 @@ a {
 }
 .center-section {
   margin: 0 auto;
-  width: 980px;
+  width: 100%;
+  margin-left: 10px;
 }
 .dpw-header-container {
   border-bottom: 1px solid #cdcdcd;
