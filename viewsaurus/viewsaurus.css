@@ -983,19 +983,19 @@
   font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 #viewsaurus .saurus-panes-header {
-  height: 54px;
+  height: 40px;
   color: #0073ae;
   font-weight: lighter;
-  line-height: 54px;
+  line-height: 40px;
   border-bottom: 1px solid #e8e8e8;
-  font-size: 36px;
-  padding: 24px 0 12px 30px;
+  font-size: 24px;
+  padding: 10px 0 10px 30px;
 }
 #viewsaurus .saurus-editor {
   background-color: transparent;
 }
 #viewsaurus .saurus-prose {
-  top: 91px;
+  top: 61px;
   border-right: 1px solid #e8e8e8;
 }
 #viewsaurus .saurus-prose .saurus-start {
@@ -1034,11 +1034,24 @@
   background-color: #ffffff;
   top: 0;
 }
+#viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button {
+  width: 15%;
+}
 #viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button .saurus-nav-button-inner {
   color: #0073ae;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button .nav-divider {
   background: none;
+}
+#viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous {
+  left: 15%;
+}
+#viewsaurus .saurus-prose .saurus-nav-buttons .nav-next {
+  left: 30%;
+}
+#viewsaurus .saurus-prose .saurus-nav-buttons .saurus-next-title {
+  left: 45%;
+  width: 55%;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-next a,
@@ -1059,8 +1072,9 @@
   color: #585858;
 }
 #viewsaurus .saurus-prose .saurus-content .step :not(pre) code {
-  background-color: #eaeaea;
+  background-color: transparent;
   color: #585858;
+  font-weight: bold;
 }
 #viewsaurus .saurus-prose .saurus-overview {
   top: 42px;
@@ -1094,8 +1108,19 @@
 #viewsaurus .saurus-prose a:visited {
   color: #0073ae;
 }
+#viewsaurus .saurus-prose ::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+#viewsaurus .saurus-prose ::-webkit-scrollbar-thumb {
+  background-color: #dddddd;
+}
+#viewsaurus .saurus-prose .ace_scrollbar {
+  scrollbar-track-color: #ffffff;
+  scrollbar-face-color: #dddddd;
+  scrollbar-shadow-color: #dddddd;
+}
 #viewsaurus .saurus-code {
-  top: 91px;
+  top: 61px;
   border-right: 1px solid #e8e8e8;
 }
 #viewsaurus .saurus-code .file-path {
@@ -1110,23 +1135,30 @@
 #viewsaurus .saurus-code .ace_gutter-layer {
   background-color: #ffffff;
   border-right: 1px solid #e8e8e8;
+  padding-top: 10px;
 }
 #viewsaurus .saurus-code .ace_content {
   background-color: #ffffff;
   color: #585858;
-}
-#viewsaurus .saurus-code ::-webkit-scrollbar-track {
-  background-color: #ffffff;
 }
 #viewsaurus .saurus-code .ace_scroller {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
 }
+#viewsaurus .saurus-code ::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+#viewsaurus .saurus-code ::-webkit-scrollbar-thumb {
+  background-color: #dddddd;
+}
 #viewsaurus .saurus-code .ace_scrollbar {
   scrollbar-track-color: #ffffff;
-  scrollbar-face-color: #e9e9e9;
-  scrollbar-shadow-color: #e9e9e9;
+  scrollbar-face-color: #dddddd;
+  scrollbar-shadow-color: #dddddd;
+}
+#viewsaurus .saurus-code .ace_line {
+  color: #0073ae;
 }
 #viewsaurus .saurus-code .ace-monokai {
   background-color: #ffffff;
@@ -1145,6 +1177,7 @@
 #viewsaurus .saurus-code .ace-monokai .ace_identifier {
   color: #0073ae;
 }
+#viewsaurus .saurus-code .ace-monokai .ace_variable,
 #viewsaurus .saurus-code .ace-monokai .ace_string {
   color: #585858;
 }
@@ -1152,7 +1185,7 @@
   background-color: #ffffff;
 }
 #viewsaurus .saurus-explorer {
-  top: 91px;
+  top: 61px;
   background-color: #ffffff;
 }
 #viewsaurus .saurus-explorer .saurus-file-list ul li {
