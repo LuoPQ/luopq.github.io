@@ -1033,6 +1033,9 @@
   background-color: #ffffff;
   top: 0;
 }
+#viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button {
+  width: 85px;
+}
 #viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button .saurus-nav-button-inner {
   color: #0073ae;
 }
