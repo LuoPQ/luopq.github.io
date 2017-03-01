@@ -985,7 +985,6 @@
 #viewsaurus .saurus-panes-header {
   height: 40px;
   color: #0073ae;
-  font-weight: lighter;
   line-height: 40px;
   border-bottom: 1px solid #e8e8e8;
   font-size: 24px;
@@ -1034,24 +1033,11 @@
   background-color: #ffffff;
   top: 0;
 }
-#viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button {
-  width: 15%;
-}
 #viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button .saurus-nav-button-inner {
   color: #0073ae;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .saurus-nav-button .nav-divider {
   background: none;
-}
-#viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous {
-  left: 15%;
-}
-#viewsaurus .saurus-prose .saurus-nav-buttons .nav-next {
-  left: 30%;
-}
-#viewsaurus .saurus-prose .saurus-nav-buttons .saurus-next-title {
-  left: 45%;
-  width: 55%;
 }
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-previous a,
 #viewsaurus .saurus-prose .saurus-nav-buttons .nav-next a,
@@ -1131,6 +1117,9 @@
 }
 #viewsaurus .saurus-code .saurus-editor {
   border-top: 1px solid #e8e8e8;
+}
+#viewsaurus .saurus-code .ace_editor {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 #viewsaurus .saurus-code .ace_gutter-layer {
   background-color: #ffffff;
