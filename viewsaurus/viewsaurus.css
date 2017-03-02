@@ -1200,6 +1200,9 @@
 #viewsaurus .saurus-explorer .saurus-file-list .current:hover {
   color: #ff8800;
 }
+#viewsaurus .saurus-explorer a.explorer-get-code {
+  color: #585858;
+}
 .ace-monokai .ace_indent-guide {
   opacity: 0.2;
 }
