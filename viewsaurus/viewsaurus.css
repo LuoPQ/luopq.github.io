@@ -998,7 +998,7 @@
   border-right: 1px solid #e8e8e8;
 }
 #viewsaurus .saurus-prose .saurus-start {
-  top: 40px;
+  top: 0;
 }
 #viewsaurus .saurus-prose .saurus-start a,
 #viewsaurus .saurus-prose .saurus-start a:visited {
